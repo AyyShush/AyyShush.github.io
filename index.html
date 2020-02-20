@@ -2,7 +2,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    
+
         <style>
           html, body, pre, code, kbd, samp {
             font-family: 'Press Start 2P', cursive;
@@ -13,22 +13,14 @@
           -moz-background-size: cover;
           -o-background-size: cover;
           background-size: cover;
-          }
-          .monster {
-            width: 190px;
-            height: 240px;
-            margin: 2% auto;
-            background: url('https://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/blog/monster.png') left center;
-            animation: play .8s steps(10) infinite;
-          }
-
-          @keyframes play {
-              100% { background-position: -1900px; }
-          }
-          
-          
-          
+          }        
           .mario {
+            width: 88px;
+            height: 96px;
+            margin-top: 562px;
+            background:url("mariosprite96x102.png") left center;    
+          }
+          .marioRun {
             width: 88px;
             height: 96px;
             margin-top: 562px;
@@ -39,9 +31,29 @@
               100% { background-position: -384px; }
           }     
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
-    <body>
+    <body style="height:2000px;" onscroll="bodyScroll();">
         <center><h1><span class="is-dark">Aayush Shukla</span></h1></center>
-        <div class="mario"></div>
+        <div id="mario" class="mario"></div>
+
+
+        <script language="javascript">
+          var scrollTimer = -1;
+          //document.getElementById("mario").classList.add("marioRun");
+          function bodyScroll() {
+              document.getElementById("mario").classList.add("marioRun");
+              console.log(document.getElementById("mario").classList);
+              
+              if (scrollTimer != -1)
+                  clearTimeout(scrollTimer);
+      
+              scrollTimer = window.setTimeout("scrollFinished()", 500);
+          }
+      
+          function scrollFinished() {
+            document.getElementById("mario").classList.remove("marioRun");
+          }
+      </script>
     </body>
 </html>
