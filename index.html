@@ -14,9 +14,34 @@
           -o-background-size: cover;
           background-size: cover;
           }
+          .monster {
+            width: 190px;
+            height: 240px;
+            margin: 2% auto;
+            background: url('https://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/blog/monster.png') left center;
+            animation: play .8s steps(10) infinite;
+          }
+
+          @keyframes play {
+              100% { background-position: -1900px; }
+          }
+          
+          
+          
+          .mario {
+            width: 88px;
+            height: 96px;
+            margin-top: 562px;
+            background:url("mariosprite96x102.png") left center;
+            animation: run .4s steps(4) infinite;       
+          }
+          @keyframes run {
+              100% { background-position: -384px; }
+          }     
         </style>
     </head>
     <body>
         <center><h1><span class="is-dark">Aayush Shukla</span></h1></center>
+        <div class="mario"></div>
     </body>
 </html>
