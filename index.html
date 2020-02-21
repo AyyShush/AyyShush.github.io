@@ -2,103 +2,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-
-        <style>
-          html, body, pre, code, kbd, samp {
-            font-family: 'Press Start 2P', cursive;
-          }
-          html, body { 
-         /* background: url("background.png") no-repeat center center fixed; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-          */
-          scroll-behavior: smooth;
-          }        
-          .mariofaceL {
-            position: fixed;
-            width: 88px;
-            height: 96px;
-            top: 80%;
-            left:0%;
-            background:url("mariosprite96x102.png") left center;    
-            transform: scaleX(-1);
-          }
-          .marioRunL {
-            position: fixed;
-            width: 88px;
-            height: 96px;
-            top: 80%;
-            left:0%;
-            background:url("mariosprite96x102.png") left center;
-            animation: run .4s steps(4) infinite; 
-            transform: scaleX(-1);      
-          }
-          @keyframes run {
-              100% { background-position: -384px; }
-          } 
-          .mariofaceR {
-            position: fixed;
-            width: 88px;
-            height: 96px;
-            top: 80%;
-            left:0%;
-            background:url("mariosprite96x102.png") left center;    
-          }
-          .marioRunR {
-            position: fixed;
-            width: 88px;
-            height: 96px;
-            top: 80%;
-            left:0%;
-            background:url("mariosprite96x102.png") left center;
-            animation: run .4s steps(4) infinite;     
-          }
-          @keyframes run {
-              100% { background-position: -384px; }
-          }    
-          .home{
-            background-color: #010000;;
-          }
-          .about{
-            background-color: #5D94FB;
-          }
-          .work{
-            background-color: #010000;
-          }
-          .contact{
-            background-color: #5D94FB;
-          }
-          body{
-            margin:0;
-            padding:0;
-            height:400vh;
-          }
-          #container{
-            position: fixed;
-            top:0;
-            left:0;
-            width: 400%;
-            height: 100vh;
-            display: flex;      
-          }
-          #container .section{
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding-right: 100px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-          #container .section .content{
-          display:flex;
-          justify-content: center;
-          align-items: center;
-          }
-        </style>
+        <link REL="STYLESHEET" TYPE="text/css" HREF="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     
@@ -106,7 +10,7 @@
       <script>document.body.style.height=window.height*4</script>
       <div id="mario" class="mariofaceR" style="z-index: 1;"></div>
       <div id="container">
-        <div class="section home">
+        <div class="section home" id="home">
           <div class="content">
               <p>Lorem ipsum dolor sit amet,
                  consectetur adipiscing elit,
@@ -129,7 +33,7 @@
                   Maecenas sed enim ut sem viverra aliquet eget sit.</p>
             </div>
           </div>
-          <div class="section about">
+          <div class="section about" id="about">
             <div class="content">
                 <p>Lorem ipsum dolor sit amet,
                    consectetur adipiscing elit,
@@ -152,7 +56,7 @@
                     Maecenas sed enim ut sem viverra aliquet eget sit.</p>
               </div>
             </div>
-            <div class="section work">
+            <div class="section work" id="work">
               <div class="content">
                   <p>Lorem ipsum dolor sit amet,
                      consectetur adipiscing elit,
@@ -175,7 +79,7 @@
                       Maecenas sed enim ut sem viverra aliquet eget sit.</p>
                 </div>
               </div>
-              <div class="section contact">
+              <div class="section contact" id="contact">
                 <div class="content">
                     <p>Lorem ipsum dolor sit amet,
                        consectetur adipiscing elit,
@@ -207,11 +111,11 @@
           // print "false" if direction is down and "true" if up
           if(this.oldScroll > this.scrollY)
           {
-            document.getElementById("mario").classList.add("marioRunL");
+            document.getElementById("mario").className="marioRunL";
           }
           else
           {
-            document.getElementById("mario").classList.add("marioRunR");
+            document.getElementById("mario").className="marioRunR";
           }
           if (scrollTimer != -1){                 
                clearTimeout(scrollTimer);
@@ -229,6 +133,16 @@
         }
         //add code for left and right on scroll up and down
         //document.getElementById("mario").classList.add("marioRun");
+        var isInViewport = function (elem) {
+          var distance = elem.getBoundingClientRect();
+          return (
+            distance.top >= 0 &&
+            distance.left >= 0 &&
+            distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+          //is section displaying in viewport works now
+        };
       </script>    
       <script>
         $(window).scroll(function(){
