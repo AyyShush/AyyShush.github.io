@@ -14,45 +14,92 @@
           -o-background-size: cover;
           background-size: cover;
           }        
-          .mario {
+          .mariofaceL {
+            position: fixed;
             width: 88px;
             height: 96px;
-            margin-top: 562px;
+            top: 80%;
+            right:90%;
             background:url("mariosprite96x102.png") left center;    
+            transform: scaleX(-1);
           }
-          .marioRun {
+          .marioRunL {
+            position: fixed;
             width: 88px;
             height: 96px;
-            margin-top: 562px;
+            top: 80%;
+            right:90%;
             background:url("mariosprite96x102.png") left center;
-            animation: run .4s steps(4) infinite;       
+            animation: run .4s steps(4) infinite; 
+            transform: scaleX(-1);      
           }
           @keyframes run {
               100% { background-position: -384px; }
-          }     
+          } 
+          .mariofaceR {
+            position: fixed;
+            width: 88px;
+            height: 96px;
+            top: 80%;
+            right:90%;
+            background:url("mariosprite96x102.png") left center;    
+          }
+          .marioRunR {
+            position: fixed;
+            width: 88px;
+            height: 96px;
+            top: 80%;
+            right:90%;
+            background:url("mariosprite96x102.png") left center;
+            animation: run .4s steps(4) infinite;     
+          }
+          @keyframes run {
+              100% { background-position: -384px; }
+          }        
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
+    
     <body style="height:2000px;" onscroll="bodyScroll();">
         <center><h1><span class="is-dark">Aayush Shukla</span></h1></center>
-        <div id="mario" class="mario"></div>
+        <div id="mario" class="mariofaceR"></div>
 
 
         <script language="javascript">
           var scrollTimer = -1;
+          var oldScroll=0;
+          var isRight;
+          //add code for left and right on scroll up and down
           //document.getElementById("mario").classList.add("marioRun");
           function bodyScroll() {
-              document.getElementById("mario").classList.add("marioRun");
-              console.log(document.getElementById("mario").classList);
-              
-              if (scrollTimer != -1)
-                  clearTimeout(scrollTimer);
+              if(scrollY>oldScroll){
+                document.getElementById("mario").classList.add("marioRunR");
+                // animation right
+                isRight=1;
+                oldScroll=scrollY;
+              }
+              else if(scrollY<oldScroll)
+              {
+                //animation left
+                isRight=0;
+                document.getElementById("mario").classList.add("marioRunL");
+                oldScroll=scrollY;
+              }
+              if (scrollTimer != -1){                 
+                 clearTimeout(scrollTimer);
+                }
+                //position of 
+              var positionM=parseInt((scrollY/(document.body.scrollHeight-document.body.clientHeight))*100);
+              document.getElementById("mario").style.left=positionM+"%";
+              console.log(positionM);
       
               scrollTimer = window.setTimeout("scrollFinished()", 500);
           }
-      
           function scrollFinished() {
-            document.getElementById("mario").classList.remove("marioRun");
+            if(isRight==1)
+            document.getElementById("mario").classList.remove("marioRunR");
+            else
+            document.getElementById("mario").classList.remove("marioRunL");
           }
       </script>
     </body>
