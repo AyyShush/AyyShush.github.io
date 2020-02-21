@@ -96,10 +96,7 @@
               scrollTimer = window.setTimeout("scrollFinished()", 500);
           }
           function scrollFinished() {
-            if(isRight==1)
-            document.getElementById("mario").classList.remove("marioRunR");
-            else
-            document.getElementById("mario").classList.remove("marioRunL");
+            document.getElementById("mario").className="mariofaceR";
           }
       </script>
     </body>
