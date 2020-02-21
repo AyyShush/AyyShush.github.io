@@ -8,11 +8,13 @@
             font-family: 'Press Start 2P', cursive;
           }
           html, body { 
-          background: url("background.png") no-repeat center center fixed; 
+         /* background: url("background.png") no-repeat center center fixed; 
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;
           background-size: cover;
+          */
+          scroll-behavior: smooth;
           }        
           .mariofaceL {
             position: fixed;
@@ -55,49 +57,189 @@
           }
           @keyframes run {
               100% { background-position: -384px; }
-          }        
+          }    
+          .home{
+            background-color: #010000;;
+          }
+          .about{
+            background-color: #5D94FB;
+          }
+          .work{
+            background-color: #010000;
+          }
+          .contact{
+            background-color: #5D94FB;
+          }
+          body{
+            margin:0;
+            padding:0;
+            height:400vh;
+          }
+          #container{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 400%;
+            height: 100vh;
+            display: flex;      
+          }
+          #container .section{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-right: 100px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          #container .section .content{
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     
-    <body style="height:2000px;" onscroll="bodyScroll();">
-        <center><h1><span class="is-dark">Aayush Shukla</span></h1></center>
-        <div id="mario" class="mariofaceR"></div>
-
-
-        <script language="javascript">
-          var scrollTimer = -1;
-          var oldScroll=0;
-          var isRight;
-          //add code for left and right on scroll up and down
-          //document.getElementById("mario").classList.add("marioRun");
-          function bodyScroll() {
-              if(scrollY>oldScroll){
-                document.getElementById("mario").classList.add("marioRunR");
-                // animation right
-                isRight=1;
-                oldScroll=scrollY;
-              }
-              else if(scrollY<oldScroll)
-              {
-                //animation left
-                isRight=0;
-                document.getElementById("mario").classList.add("marioRunL");
-                oldScroll=scrollY;
-              }
-              if (scrollTimer != -1){                 
-                 clearTimeout(scrollTimer);
-                }
-                //position of 
-              var positionM=parseInt((scrollY/(document.body.scrollHeight-document.body.clientHeight))*100);
-              document.getElementById("mario").style.left=positionM+"%";
-              console.log(positionM);
-      
-              scrollTimer = window.setTimeout("scrollFinished()", 500);
+    <body>
+      <script>document.body.style.height=window.height*4</script>
+      <div id="mario" class="mariofaceR" style="z-index: 1;"></div>
+      <div id="container">
+        <div class="section home">
+          <div class="content">
+              <p>Lorem ipsum dolor sit amet,
+                 consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Est ante in nibh mauris cursus mattis molestie a iaculis.
+                  Nibh cras pulvinar mattis nunc.
+                  Nisi porta lorem mollis aliquam ut porttitor leo.
+                  Quam elementum pulvinar etiam non. Et tortor at risus viverra adipiscing at in tellus.
+                  Imperdiet dui accumsan sit amet nulla. Sit amet volutpat consequat mauris nunc congue nisi.
+                  Egestas dui id ornare arcu.
+                  Commodo nulla facilisi nullam vehicula.
+                  Orci eu lobortis elementum nibh tellus molestie nunc.
+                  Ac placerat vestibulum lectus mauris ultrices eros in.
+                  Posuere sollicitudin aliquam ultrices sagittis orci a.
+                  Morbi enim nunc faucibus a pellentesque sit amet.
+                  Faucibus interdum posuere lorem ipsum dolor sit.
+                  Mi tempus imperdiet nulla malesuada pellentesque elit.
+                  Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.
+                  In cursus turpis massa tincidunt.
+                  Maecenas sed enim ut sem viverra aliquet eget sit.</p>
+            </div>
+          </div>
+          <div class="section about">
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet,
+                   consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Est ante in nibh mauris cursus mattis molestie a iaculis.
+                    Nibh cras pulvinar mattis nunc.
+                    Nisi porta lorem mollis aliquam ut porttitor leo.
+                    Quam elementum pulvinar etiam non. Et tortor at risus viverra adipiscing at in tellus.
+                    Imperdiet dui accumsan sit amet nulla. Sit amet volutpat consequat mauris nunc congue nisi.
+                    Egestas dui id ornare arcu.
+                    Commodo nulla facilisi nullam vehicula.
+                    Orci eu lobortis elementum nibh tellus molestie nunc.
+                    Ac placerat vestibulum lectus mauris ultrices eros in.
+                    Posuere sollicitudin aliquam ultrices sagittis orci a.
+                    Morbi enim nunc faucibus a pellentesque sit amet.
+                    Faucibus interdum posuere lorem ipsum dolor sit.
+                    Mi tempus imperdiet nulla malesuada pellentesque elit.
+                    Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.
+                    In cursus turpis massa tincidunt.
+                    Maecenas sed enim ut sem viverra aliquet eget sit.</p>
+              </div>
+            </div>
+            <div class="section work">
+              <div class="content">
+                  <p>Lorem ipsum dolor sit amet,
+                     consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Est ante in nibh mauris cursus mattis molestie a iaculis.
+                      Nibh cras pulvinar mattis nunc.
+                      Nisi porta lorem mollis aliquam ut porttitor leo.
+                      Quam elementum pulvinar etiam non. Et tortor at risus viverra adipiscing at in tellus.
+                      Imperdiet dui accumsan sit amet nulla. Sit amet volutpat consequat mauris nunc congue nisi.
+                      Egestas dui id ornare arcu.
+                      Commodo nulla facilisi nullam vehicula.
+                      Orci eu lobortis elementum nibh tellus molestie nunc.
+                      Ac placerat vestibulum lectus mauris ultrices eros in.
+                      Posuere sollicitudin aliquam ultrices sagittis orci a.
+                      Morbi enim nunc faucibus a pellentesque sit amet.
+                      Faucibus interdum posuere lorem ipsum dolor sit.
+                      Mi tempus imperdiet nulla malesuada pellentesque elit.
+                      Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.
+                      In cursus turpis massa tincidunt.
+                      Maecenas sed enim ut sem viverra aliquet eget sit.</p>
+                </div>
+              </div>
+              <div class="section contact">
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet,
+                       consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Est ante in nibh mauris cursus mattis molestie a iaculis.
+                        Nibh cras pulvinar mattis nunc.
+                        Nisi porta lorem mollis aliquam ut porttitor leo.
+                        Quam elementum pulvinar etiam non. Et tortor at risus viverra adipiscing at in tellus.
+                        Imperdiet dui accumsan sit amet nulla. Sit amet volutpat consequat mauris nunc congue nisi.
+                        Egestas dui id ornare arcu.
+                        Commodo nulla facilisi nullam vehicula.
+                        Orci eu lobortis elementum nibh tellus molestie nunc.
+                        Ac placerat vestibulum lectus mauris ultrices eros in.
+                        Posuere sollicitudin aliquam ultrices sagittis orci a.
+                        Morbi enim nunc faucibus a pellentesque sit amet.
+                        Faucibus interdum posuere lorem ipsum dolor sit.
+                        Mi tempus imperdiet nulla malesuada pellentesque elit.
+                        Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.
+                        In cursus turpis massa tincidunt.
+                        Maecenas sed enim ut sem viverra aliquet eget sit.</p>
+                  </div>
+                </div>
+      </div>
+      <script language="javascript">
+        var scrollTimer = -1;
+        var oldScroll=0;
+        var isRight;
+        window.onscroll = function(e) {
+          // print "false" if direction is down and "true" if up
+          if(this.oldScroll > this.scrollY)
+          {
+            document.getElementById("mario").classList.add("marioRunL");
           }
-          function scrollFinished() {
-            document.getElementById("mario").className="mariofaceR";
+          else
+          {
+            document.getElementById("mario").classList.add("marioRunR");
           }
+          if (scrollTimer != -1){                 
+               clearTimeout(scrollTimer);
+          }
+              //position of 
+            var positionM=parseInt((scrollY/(document.body.scrollHeight-document.body.clientHeight))*100);
+            document.getElementById("mario").style.left=positionM+"%";
+            //console.log(positionM);
+    
+            scrollTimer = window.setTimeout("scrollFinished()", 350);
+          this.oldScroll = this.scrollY;
+        }
+        function scrollFinished() {
+           document.getElementById("mario").className="mariofaceR";
+        }
+        //add code for left and right on scroll up and down
+        //document.getElementById("mario").classList.add("marioRun");
+      </script>    
+      <script>
+        $(window).scroll(function(){
+          var scroll = $(window).scrollTop(),
+          dh=$(document).height(),
+          wh=$(window).height(),
+          //value=(scroll/(dh-wh)) * 100;
+          value=(scrollY/(document.body.scrollHeight-document.body.clientHeight))*100;
+          //console.log(value);
+          $('#container').css('left',-value * 3  + '%');
+        })
       </script>
     </body>
 </html>
