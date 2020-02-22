@@ -114,16 +114,6 @@ html, body, pre, code, kbd, samp {
     font-weight: 500;
     transition: 0.6s;
   }
-
-
-
-
-
-
-
-
-
-
   #container{
     position: fixed;
     top:0;
@@ -154,7 +144,6 @@ html, body, pre, code, kbd, samp {
     align-items: center;
     justify-content: center;
   }
-
   .scrollbar-measure {
     width: 100px;
     height: 100px;

@@ -202,6 +202,10 @@
           containerSize=parseFloat($('#container').css('left'));
           if(parseInt(value)==100)
           $('#container').css('left',containerSize-(6*scrollbarWidth));
+          else if(parseInt(value)==100 && scrollbarWidth==0)
+          {
+            $('#container').css('left',containerSize-(90));
+          }
         //  console.log(containerSize);
         })
       </script>
