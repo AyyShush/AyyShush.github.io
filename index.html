@@ -189,19 +189,17 @@
         outer.style.overflow = 'scroll'; // forcing scrollbar to appear
         outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
         document.body.appendChild(outer);
-
         // Creating inner element and placing it in the container
         const inner = document.createElement('div');
         outer.appendChild(inner);
-
         // Calculating difference between container's full width and the child width
         const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-
         // Removing temporary elements from the DOM
         outer.parentNode.removeChild(outer);
-
         return scrollbarWidth;
         }
+
+
         $(window).scroll(function(){
           var scroll = $(window).scrollTop(),
           dh=$(document).height(),
@@ -211,8 +209,10 @@
          console.log(value);
           $('#container').css('left',-value * 6  + '%');
           containerSize=parseFloat($('#container').css('left'));
-          if(parseInt(value)==100)
-          $('#container').css('left',containerSize-(6*getScrollbarWidth()));
+          if(parseInt(value)==100){
+            console.log("loading extra space");
+            $('#container').css('left',containerSize-(6*getScrollbarWidth()));
+          }
         //  console.log(containerSize);
         })
       </script>
