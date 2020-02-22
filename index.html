@@ -182,15 +182,40 @@
         };
       </script>    
       <script>
+        function getScrollbarWidth() {
+
+        // Creating invisible container
+        const outer = document.createElement('div');
+        outer.style.visibility = 'hidden';
+        outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+        outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+        document.body.appendChild(outer);
+
+        // Creating inner element and placing it in the container
+        const inner = document.createElement('div');
+        outer.appendChild(inner);
+
+        // Calculating difference between container's full width and the child width
+        const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+        // Removing temporary elements from the DOM
+        outer.parentNode.removeChild(outer);
+
+        return scrollbarWidth;
+
+        }
+
         // Create the measurement node
         var scrollDiv = document.createElement("div");
         scrollDiv.className = "scrollbar-measure";
         document.body.appendChild(scrollDiv);
-        var containerSize;
         // Get the scrollbar width to add to the last slide later on
         var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
         // Delete the DIV 
         document.body.removeChild(scrollDiv);
+
+
+
         $(window).scroll(function(){
           var scroll = $(window).scrollTop(),
           dh=$(document).height(),
