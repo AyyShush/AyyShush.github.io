@@ -11,10 +11,10 @@
       <header>
         <a href="#" class="logo">Aayush</a>
         <ul>
-          <li><a class="nes-btn" onclick="window.scrollTo(0, (0)*document.body.scrollHeight);">Home</a></li>
-          <li><a class="nes-btn" onclick="scrolltoY('about');">About</a></li>
-          <li><a class="nes-btn" onclick="window.scrollTo(0, u);">Work</a></li>
-          <li><a class="nes-btn" onclick="window.scrollTo(0, document.body.scrollHeight);" >Contact</a></li>
+          <li><a class="nes-btn" onclick="scrolltoY(0);">Home</a></li>
+          <li><a class="nes-btn" onclick="scrolltoY(2);">About</a></li>
+          <li><a class="nes-btn" onclick="scrolltoY(4);">Work</a></li>
+          <li><a class="nes-btn" onclick="scrolltoY(6);" >Contact</a></li>
         </ul>
       </header>
       <div id="container" style="z-index:-1">
@@ -48,6 +48,7 @@
           </div>
           <div class="section">
             <div class="content">
+              empty1
               </div>
             </div>
           <div class="section about" id="about">
@@ -79,13 +80,14 @@
             </div>          
             <div class="section">
               <div class="content">
+                empty2
                 </div>
               </div>
             <div class="section work" id="work">
               <a name="work"></a>
               <div class="content">
                 <div class="nes-text text">  
-                  <h1>Home</h1>            
+                  <h1>Work</h1>            
                   <p>Lorem ipsum dolor sit amet,
                   consectetur adipiscing elit,
                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -110,13 +112,14 @@
               </div>
               <div class="section">
                 <div class="content">
+                  empty3
                   </div>
                 </div>
               <div class="section contact" id="contact">
                 <a name="contact"></a>
                 <div class="content">
                   <div class="nes-text text">  
-                    <h1>Home</h1>            
+                    <h1>Contact</h1>            
                     <p>Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit,
                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -144,6 +147,7 @@
         var scrollTimer = -1;
         var oldScroll=0;
         var isRight;
+        var positionM=0;
         window.onscroll = function(e) {
           // print "false" if direction is down and "true" if up
           if(this.oldScroll > this.scrollY)
@@ -158,7 +162,7 @@
                clearTimeout(scrollTimer);
           }
               //position of 
-            var positionM=parseInt((scrollY/(document.body.scrollHeight-document.body.clientHeight))*100);
+            positionM=parseInt((scrollY/(document.body.scrollHeight-document.body.clientHeight))*100);
             document.getElementById("mario").style.left=positionM+"%";
             //console.log(positionM);
     
@@ -218,13 +222,15 @@
         })
       </script>
       <script>
-        function scrolltoY(name)
+        function scrolltoY(num)
         {
-          var posAbout=$('#'+name).position().left;
-          console.log(posAbout);
-          return posAbout;
-          //window.scrollTo(0,posAbout-90);
-          //create function to scroll via buttons
+          var toSubtract=getScrollbarWidth()*num;
+          var bruh=100/6;
+          num=num*bruh;
+          console.log(num);
+          var bleh=document.body.scrollHeight-document.body.clientHeight;
+          var scrollAm=(num*bleh)/100;
+          window.scrollTo(0,scrollAm+toSubtract);
         }
       </script>
     </body>
