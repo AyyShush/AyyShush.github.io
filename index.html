@@ -11,19 +11,19 @@
       <header>
         <a href="#" class="logo">Aayush</a>
         <ul>
-          <li><a href="#home" class="link">Home</a></li>
-          <li><a href="#about" class="link">About</a></li>
-          <li><a href="#work" class="link">Work</a></li>
-          <li><a href="#contact" class="link">Contact</a></li>
+          <li><a class="nes-btn" onclick="window.scrollTo(0, (0)*document.body.scrollHeight);">Home</a></li>
+          <li><a class="nes-btn" onclick="scrolltoY('about');">About</a></li>
+          <li><a class="nes-btn" onclick="window.scrollTo(0, u);">Work</a></li>
+          <li><a class="nes-btn" onclick="window.scrollTo(0, document.body.scrollHeight);" >Contact</a></li>
         </ul>
       </header>
       <div id="container" style="z-index:-1">
+        <a name="home"></a>
         <div class="section home" id="home">
-
           <div class="content">
             <div class="nes-text text">  
               <h1>Home</h1>            
-              <a name="home"></a>
+
               <p>Lorem ipsum dolor sit amet,
               consectetur adipiscing elit,
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -182,15 +182,38 @@
         };
       </script>    
       <script>
+        // Create the measurement node
+        var scrollDiv = document.createElement("div");
+        scrollDiv.className = "scrollbar-measure";
+        document.body.appendChild(scrollDiv);
+        var containerSize;
+        // Get the scrollbar width to add to the last slide later on
+        var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        // Delete the DIV 
+        document.body.removeChild(scrollDiv);
         $(window).scroll(function(){
           var scroll = $(window).scrollTop(),
           dh=$(document).height(),
           wh=$(window).height(),
           //value=(scroll/(dh-wh)) * 100;
           value=(scrollY/(document.body.scrollHeight-document.body.clientHeight))*100;
-          //console.log(value);
+         // console.log(value);
           $('#container').css('left',-value * 6  + '%');
+          containerSize=parseFloat($('#container').css('left'));
+          if(parseInt(value)==100)
+          $('#container').css('left',containerSize-(6*scrollbarWidth));
+        //  console.log(containerSize);
         })
+      </script>
+      <script>
+        function scrolltoY(name)
+        {
+          var posAbout=$('#'+name).position().left;
+          console.log(posAbout);
+          return posAbout;
+          //window.scrollTo(0,posAbout-90);
+          //create function to scroll via buttons
+        }
       </script>
     </body>
 </html>
