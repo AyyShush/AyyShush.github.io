@@ -208,7 +208,7 @@
           wh=$(window).height(),
           //value=(scroll/(dh-wh)) * 100;
           value=(scrollY/(document.body.scrollHeight-document.body.clientHeight))*100;
-         // console.log(value);
+         console.log(value);
           $('#container').css('left',-value * 6  + '%');
           containerSize=parseFloat($('#container').css('left'));
           if(parseInt(value)==100)
