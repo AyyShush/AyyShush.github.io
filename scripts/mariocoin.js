@@ -1,4 +1,4 @@
-$('div.mario').click(function(){
+$('div.mariocoin').click(function(){
 	var mario = $(this);
 	mario.find('div.box').css('margin-top','-25px');
 	if (mario.find('span.coin').hasClass( "play" ) ) {

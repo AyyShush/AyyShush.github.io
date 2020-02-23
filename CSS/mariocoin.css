@@ -1,10 +1,10 @@
-div.mario {
+div.mariocoin {
     display:table;
     position:relative;
     margin:250px auto 0 auto;
   }
   
-  div.mario span.coin{
+  div.mariocoin span.coin{
     position:absolute;
     width:100%;
     text-align:center;
@@ -12,7 +12,7 @@ div.mario {
     opacity:0;
   }
   
-  div.mario div.box{
+  div.mariocoin div.box{
     position:relative;
     width:150px;
     height:150px;
@@ -23,18 +23,18 @@ div.mario {
     background-position:0 0;
   }
   
-  div.mario div.box.empty{
+  div.mariocoin div.box.empty{
     background-image:url('http://adobewordpress.com/tasarim/images/box.png');
     background-position:150px 0;
     margin-top:0;
     cursor:not-allowed;
   }
   
-  div.mario span.coin img{
+  div.mariocoin span.coin img{
     transition:opacity .3s ease-out;
   }
   
-  div.mario span.coin.play{
+  div.mariocoin span.coin.play{
     transition:all .5s ease-out;
     -webkit-animation-name: position;
     -webkit-animation-duration: 800ms;
@@ -50,7 +50,7 @@ div.mario {
     animation-timing-function: linear;
   }
   
-  div.mario span.coin.play img{
+  div.mariocoin span.coin.play img{
     -webkit-animation-name: spin;
     -webkit-animation-duration: 400ms;
     -webkit-animation-iteration-count: infinite;
