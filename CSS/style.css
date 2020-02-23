@@ -82,7 +82,7 @@ html, body, pre, code, kbd, samp {
     transition: 0.6s;
     padding: 0px 50px;
     z-index: 10000;
-    background-color: #CC4B09;
+    background-color: #007800;
   }
   header .logo{
     position: relative;
