@@ -82,3 +82,19 @@ function getScrollbarWidth() {
       var scrollAm=(num*bleh)/100;
       window.scrollTo(0,scrollAm+toSubtract);
     }
+
+    function changeYPos()
+    {
+      var marioPos=parseInt($("#mario").position().top)-51;
+      marioPos=marioPos+"px";
+      console.log(marioPos);
+      const demoClasses = document.querySelectorAll('.bottomTile');
+      demoClasses.forEach(element => {
+        element.style.top=marioPos;
+      });
+      const bruhClasses = document.querySelectorAll('.UbottomTile');
+      bruhClasses.forEach(element => {
+        element.style.top=marioPos;
+      });
+    }
+    changeYPos();

@@ -147,7 +147,6 @@ html, body, pre, code, kbd, samp {
     background-image: url(../Images/TileBottom.png);
     height: 136px;
     background-repeat: repeat-x;
-    top:79.2%;
     position: relative;
     z-index: 5;
   }
@@ -155,7 +154,6 @@ html, body, pre, code, kbd, samp {
     background-image: url(../Images/UTileBottom.png);
     height: 136px;
     background-repeat: repeat-x;
-    top:79.2%;
     position: relative;
     z-index: 5;
   }
