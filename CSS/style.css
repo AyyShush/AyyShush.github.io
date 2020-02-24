@@ -125,9 +125,8 @@ html, body, pre, code, kbd, samp {
   #container .section{
     position: relative;
     width: 100%;
-    margin-top: 0.7%;
     height: 100%;
-    padding-top: 40px;
+    padding-top: 0.8%;
     padding-right: 100px;
     padding-left: 100px;
     box-sizing: border-box;
@@ -148,7 +147,7 @@ html, body, pre, code, kbd, samp {
     background-image: url(../Images/TileBottom.png);
     height: 136px;
     background-repeat: repeat-x;
-    top:75%;
+    top:79.2%;
     position: relative;
     z-index: 5;
   }
@@ -156,7 +155,7 @@ html, body, pre, code, kbd, samp {
     background-image: url(../Images/UTileBottom.png);
     height: 136px;
     background-repeat: repeat-x;
-    top:75%;
+    top:79.2%;
     position: relative;
     z-index: 5;
   }
