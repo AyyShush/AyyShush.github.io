@@ -38,8 +38,9 @@ html, body, pre, code, kbd, samp {
     height: 96px;
     top: 80%;
     left:0%;
-    background:url("mariosprite96x102.png") left center;    
+    background:url("mariosprite96x102.png") left center;  
     transform: scale(0.5);
+
   }
   .marioRunR {
     position: fixed;

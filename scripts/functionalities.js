@@ -96,5 +96,7 @@ function getScrollbarWidth() {
       bruhClasses.forEach(element => {
         element.style.top=marioPos;
       });
+      set
     }
     changeYPos();
+    setInterval(changeYPos,1000);
