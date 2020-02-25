@@ -59,13 +59,13 @@ html, body, pre, code, kbd, samp {
     background-color: #010000;;
   }
   .about{
-    background-color: #5D94FB;
+    background-image: linear-gradient(to bottom,#5c94fc,#5D94FB);
   }
   .work{
     background-color: #010000;
   }
   .contact{
-    background-color: #5D94FB;
+    background-image: linear-gradient(to bottom,#5c94fc,#5D94FB);
   }
   body{
     margin:0;
@@ -136,7 +136,8 @@ html, body, pre, code, kbd, samp {
     z-index: 100;
   }
   #container .section .backgroundmap{
-    height: 100%;
+    top:0;
+    height: 100vh;
     width: 100%;
     position: absolute;
     left: 0;
@@ -144,19 +145,18 @@ html, body, pre, code, kbd, samp {
     overflow:visible;
     
   }
-  #container .section .backgroundmap .bottomTile{
+  #container .section .backgroundmap .bottomTile,.UbottomTile{
     background-image: url(../Images/TileBottom.png);
     height: 136px;
+    width: 100%;
+    top:80%;
+    transform: translateY(50%);
     background-repeat: repeat-x;
-    position: relative;
+    position: absolute;
     z-index: 5;
   }
   #container .section .backgroundmap .UbottomTile{
     background-image: url(../Images/UTileBottom.png);
-    height: 136px;
-    background-repeat: repeat-x;
-    position: relative;
-    z-index: 5;
   }
   #container .section .content{
   display:flex;
