@@ -1,186 +1,219 @@
-html, body, pre, code, kbd, samp {
-    font-family: 'Press Start 2P', cursive;
-  }
-  html, body { 
- /* background: url("background.png") no-repeat center center fixed; 
+html,
+body,
+pre,
+code,
+kbd,
+samp {
+  font-family: 'Press Start 2P', cursive;
+}
+html,
+body {
+  /* background: url("background.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   */
   scroll-behavior: smooth;
-  }        
-  .mariofaceL {
-    position: fixed;
-    width: 88px;
-    height: 96px;
-    top: 80%;
-    left:0%;
-    background:url("mariosprite96x102.png") left center;    
-    transform: scaleX(-0.5) scaleY(0.5);
-  }
-  .marioRunL {
-    position: fixed;
-    width: 88px;
-    height: 96px;
-    top: 80%;
-    left:0%;
-    background:url("mariosprite96x102.png") left center;
-    animation: run .4s steps(4) infinite; 
-    transform: scaleX(-0.5) scaleY(0.5);      
-  }
-  @keyframes run {
-      100% { background-position: -384px; }
-  } 
-  .mariofaceR {
-    position: fixed;
-    width: 88px;
-    height: 96px;
-    top: 80%;
-    left:0%;
-    background:url("mariosprite96x102.png") left center;  
-    transform: scale(0.5);
+}
 
-  }
-  .marioRunR {
-    position: fixed;
-    width: 88px;
-    height: 96px;
-    top: 80%;
-    left:0%;
-    background:url("mariosprite96x102.png") left center;
-    animation: run .4s steps(4) infinite;   
-    transform: scale(0.5);  
-  }
-  @keyframes run {
-      100% { background-position: -384px; }
-  }    
-  .home{
-    background-color: #010000;;
-  }
-  .about{
-    background-image: linear-gradient(to bottom,#5c94fc,#5D94FB);
-  }
-  .work{
-    background-color: #010000;
-  }
-  .contact{
-    background-image: linear-gradient(to bottom,#5c94fc,#5D94FB);
-  }
-  body{
-    margin:0;
-    padding:0;
-    height:600vw;
-    font-size: 16px;
-  }
 
-  header{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.6s;
-    padding: 0px 50px;
-    z-index: 10000;
-    background-color: #007800;
+/* .mariofaceL {
+  position: fixed;
+  width: 88px;
+  height: 96px;
+  top: 80%;
+  left: 0%;
+  background: url('mariosprite96x102.png') left center;
+  transform: scaleX(-0.5) scaleY(0.5);
+} */
+.marioRunL {
+  position: fixed;
+  width: 88px;
+  height: 96px;
+  top: 80%;
+  left: 0%;
+  background: url('mariosprite96x102.png') left center;
+  animation: run 0.4s steps(4) infinite;
+  transform: scaleX(-0.5) scaleY(0.5);
+}
+@keyframes run {
+  100% {
+    background-position: -384px;
   }
-  header .logo{
-    position: relative;
-    color: #FFF;
-    text-decoration: none;
-    font-size: 32px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.6s;
+}
+.mariofaceR {
+  position: fixed;
+  width: 88px;
+  height: 96px;
+  top: 80%;
+  left: 0%;
+  background: url('mariosprite96x102.png') left center;
+  transform: scale(0.5);
+  animation: run;
+}
+.marioRunR {
+  position: fixed;
+  width: 88px;
+  height: 96px;
+  top: 80%;
+  left: 0%;
+  background: url('mariosprite96x102.png') left center;
+  animation: run 0.4s steps(4) infinite;
+  transform: scale(0.5);
+}
+@keyframes run {
+  100% {
+    background-position: -384px;
   }
-  header ul{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  header ul li{
-    position: relative;
-    padding: 5px;
-    list-style: none;
-  }
-  header ul li a{
-    position: relative;
-    text-decoration: none;
-    color:#ffff;
-    letter-spacing: 2px;
-    font-weight: 500;
-    transition: 0.6s;
-  }
-  #container{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 700vw;
-    height: 100vh;
-    display: flex;      
-  }
-  #container .section{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding-top: 0.8%;
-    padding-right: 100px;
-    padding-left: 100px;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-  }
-  #container .section .backgroundmap{
-    top:0;
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    z-index: -100;
-    overflow:visible;
-    
-  }
-  #container .section .backgroundmap .bottomTile,.UbottomTile{
-    background-image: url(../Images/TileBottom.png);
-    height: 136px;
-    width: 100%;
-    top:80%;
-    transform: translateY(50%);
-    background-repeat: repeat-x;
-    position: absolute;
-    z-index: 5;
-  }
-  #container .section .backgroundmap .UbottomTile{
-    background-image: url(../Images/UTileBottom.png);
-  }
-  #container .section .content{
-  display:flex;
+}
+.home {
+  background-color: #010000;
+}
+.about {
+  background-image: linear-gradient(to bottom, #5c94fc, #5d94fb);
+}
+.work {
+  background-color: #010000;
+}
+.contact {
+  background-image: linear-gradient(to bottom, #5c94fc, #5d94fb);
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 600vw;
+  font-size: 16px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 0px 50px;
+  z-index: 10000;
+  background-color: #007800;
+}
+header .logo {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+header ul {
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
-  }
-  #container .section .content h1{
-    display: block;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .brickborder{
-    border: 66px solid pink;
-    border-image: url("../Images/BlockBorder.png");
-    border-image-slice: 72 66;
-    border-image-repeat: round;
-  }
-  .ubrickborder{
-    border: 66px solid pink;
-    border-image: url("../Images/UBlockBorder.png");
-    border-image-slice: 72 66;
-    border-image-repeat: round;
-  }
-  
-  
+}
+header ul li {
+  position: relative;
+  padding: 5px;
+  list-style: none;
+}
+header ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #ffff;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: 0.6s;
+}
+#container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 700vw;
+  height: 100vh;
+  display: flex;
+}
+#container .section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 0.8%;
+  padding-right: 100px;
+  padding-left: 100px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+#container .section .backgroundmap {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -100;
+  overflow: visible;
+}
+
+.about .brick {
+}
+
+#container .section .backgroundmap .bottomTile,
+.UbottomTile {
+  background-image: url(../Images/TileBottom.png);
+  height: 136px;
+  width: 100%;
+  top: 80%;
+  transform: translateY(50%);
+  background-repeat: repeat-x;
+  position: absolute;
+  z-index: 5;
+}
+#container .section .backgroundmap .UbottomTile {
+  background-image: url(../Images/UTileBottom.png);
+}
+#container .section .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .section .content h1 {
+  display: block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.brickborder {
+  border: 66px solid pink;
+  border-image: url('../Images/BlockBorder.png');
+  border-image-slice: 72 66;
+  border-image-repeat: round;
+}
+.ubrickborder {
+  border: 66px solid pink;
+  border-image: url('../Images/UBlockBorder.png');
+  border-image-slice: 72 66;
+  border-image-repeat: round;
+}
+
+.brick {
+  background: url(../Images/Brick.png) no-repeat;
+  width: 68px;
+  height: 66px;
+  position: absolute;
+}
+
+.high {
+  bottom: calc(48px * 8);
+}
+
+.low {
+  bottom: calc(48px * 5);
+}
+
+.base {
+  top: 81%;
+}
