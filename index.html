@@ -1,158 +1,178 @@
 <html>
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
-      rel="stylesheet"
-    />
-    <link
-      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
-      rel="stylesheet"
-    />
-    <link rel="STYLESHEET" type="text/css" href="CSS/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/mariocoin.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/typewriter.css" />
-  </head>
 
-  <body>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <link rel="STYLESHEET" type="text/css" href="CSS/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="CSS/mariocoin.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/typewriter.css" />
+</head>
 
-    <div id="mario" class="mariofaceR" style="z-index: 100;"></div>
-    <marquee width="100%"><img src="Images/Cloud - Double.png"/></marquee>
-    <header>
-      <a href="#" class="logo">AyyShush!</a>
-      <ul>
-        <li><a class="nes-btn" onclick="scrolltoY(0);">Home</a></li>
-        <li><a class="nes-btn" onclick="scrolltoY(2);">About</a></li>
-        <li><a class="nes-btn" onclick="scrolltoY(4);">Work</a></li>
-        <li><a class="nes-btn" onclick="scrolltoY(6);">Contact</a></li>
-      </ul>
-    </header>
-    <div id="container">
-      <div class="section home" id="home" style="padding: 100px;">
-        <div class="backgroundmap"></div>
-        <center>
-          <h1
-            style="background-color: #CC4B09;width: 50%;padding: 50px;color:#fff"
-            class="nes-container is-rounded"
-          >
-            Aayush's Lore
-            <img src="Images/Sans.png" style="max-width:20%;max-height:20%;" />
-          </h1>
-        </center>
-        <br />
-        <div class="content">
-          <div class="text">
-            <p class="typewriter" style="color: white;">
-              Scroll further to start an adventure!
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="section about">
-        <div class="content">
-          Welcome to The Life of Aayush Shukla. Take a dive and learn more about
-          the 20 years of my existence!
-        </div>
-        <div class="backgroundmap">
-          <div class="coinFull low" style="transform: translateX(1000%);"></div>
-          <div class="brick low" style="transform: translateX(1200%);"></div>
-          <div class="coinFull low" style="transform: translateX(1298%);"></div>
-          <div class="brick low" style="transform: translateX(1397%);"></div>
-          <div class="coinFull low" style="transform: translateX(1495%);"></div>
-          <div class="brick low" style="transform: translateX(1596%);"></div>
-          <div class="coinFull High" style="transform: translateX(1400%);"></div>
+<body>
 
-          <div class="hillLarge base"></div>
-          <div class="bushTriple base" style="transform: translateX(200%);"></div>
-          <div class="hillSmall base" style="transform: translateX(400%);"></div>
-          <div class="bushSingle base" style="transform: translateX(900%);"></div>
-          <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;"></div>
-          <div class="bottomTile"></div>
-        </div>
-      </div>
-      <div class="section about" id="about">
-        <div class="content">
-          <div class="nes-text text">
-            <h1 class="brickborder">About</h1>
-            <p>
-              Indian by birth. Passionate Game Designer and Tech Enthusiast by
-              choice. Hi! I am Aayush Shukla, a resident of Indore, India. I am
-              profoundly interested in learning new concepts and helping bring
-              brainstorming ideas to life. I specialize in Game Designing, Full
-              Stack Web Development
-            </p>
-          </div>
-        </div>
-
-        <div class="backgroundmap">
-          <div class="bushTriple base" style="transform: translateX(200%);"></div>
-          <div class="hillLarge base" style="transform: translateX(300%);"></div>
-          <div class="pipeVert base" style="transform:translateY(calc(-48px * 4));right: 0;"></div>
-          <div class="bottomTile"></div>
-        </div>
-      </div>
-      <div class="section work">
-        <div class="content">
-          empty2
-        </div>
-        <div class="backgroundmap">
-          <div class="Ubrick base" style="
-          height: calc(66px*20);
-          background-repeat: repeat-y;
-          transform: translateY(-80%);"></div>
-          <div class="UbottomTile"></div>
-        </div>
-      </div>
-      <div class="section work" id="work">
-        <div class="content">
-          <div class="nes-text text">
-            <h1>Work</h1>
-            <p>
-              I have acquired a reasonable amount of experience and expertise
-              working on solo as well as team projects throughout my school and
-              college life. My pieces of work inclue:
-            </p>
-          </div>
-          <div class="backgroundmap">
-            <div class="Ubrick base" style="
-            height: calc(66px*20);
-            background-repeat: repeat-y;
-            transform: translateY(-105%);right: 0;"></div>
-            <div class="UbottomTile"></div>
-          </div>
-        </div>
-      </div>
-      <div class="section contact">
-        <div class="content">
-          empty3
-        </div>
-        <div class="backgroundmap">
-          <div class="bottomTile"></div>
-        </div>
-      </div>
-      <div class="section contact" id="contact">
-        <div class="content">
-          <div class="nes-text text">
-            <h1>Contact</h1>
-            <p>
-              If you wish to work with me or have queries of any kind on my
-              projects, feel free to contact me on any of these:
-            </p>
-          </div>
-          <div class="backgroundmap">
-            <div class="hillLarge base" style="transform: translateY(-50%);"></div>
-            <div class="bushTriple base" style="transform: translateX(200%);"></div>
-            <div class="hillSmall base" style="transform: translateX(400%);"></div>
-            <div class="bushSingle base" style="transform: translateX(900%);"></div>
-            <div class="castle base" style="transform: translateY(-80%) translateX(250%);"></div>
-            <div class="pipeSet base" style="transform: translateY(-70%) scaleX(-1);z-index: 500;right: 0;"></div>
-            <div class="bottomTile"></div>   
-            <div class="bottomTile"></div>
-          </div>
+  <div id="mario" class="mariofaceR" style="z-index: 100;"></div>
+  <marquee width="100%"><img src="Images/Cloud - Double.png" /></marquee>
+  <header>
+    <a href="#" class="logo">AyyShush!</a>
+    <ul>
+      <li><a class="nes-btn" onclick="scrolltoY(0);">Home</a></li>
+      <li><a class="nes-btn" onclick="scrolltoY(2);">About</a></li>
+      <li><a class="nes-btn" onclick="scrolltoY(4);">Work</a></li>
+      <li><a class="nes-btn" onclick="scrolltoY(6);">Contact</a></li>
+    </ul>
+  </header>
+  <div id="container">
+    <div class="section home" id="home" style="padding: 100px;">
+      <div class="backgroundmap"></div>
+      <center>
+        <h1 style="background-color: #CC4B09;width: 50%;padding: 50px;color:#fff" class="nes-container is-rounded">
+          Aayush's Lore
+          <img src="Images/Sans.png" style="max-width:20%;max-height:20%;" />
+        </h1>
+      </center>
+      <br />
+      <div class="content">
+        <div class="text">
+          <p class="typewriter" style="color: white;">
+            Scroll further to start an adventure!
+          </p>
         </div>
       </div>
     </div>
-    <script language="javascript" src="scripts/functionalities.js"></script>
-    <script src="scripts/mariocoin.js"></script>
-  </body>
+    <div class="section about">
+      <div class="content">
+        Welcome to The Life of Aayush Shukla. Take a dive and learn more about
+        the 20 years of my existence!
+      </div>
+      <div class="backgroundmap">
+        <div class="coinFull low" style="transform: translateX(1000%);"></div>
+        <div class="brick low" style="transform: translateX(1200%);"></div>
+        <div class="coinFull low" style="transform: translateX(1298%);"></div>
+        <div class="brick low" style="transform: translateX(1397%);"></div>
+        <div class="coinFull low" style="transform: translateX(1495%);"></div>
+        <div class="brick low" style="transform: translateX(1596%);"></div>
+        <div class="coinFull High" style="transform: translateX(1400%);"></div>
+
+        <div class="hillLarge base"></div>
+        <div class="bushTriple base" style="transform: translateX(200%);"></div>
+        <div class="hillSmall base" style="transform: translateX(400%);"></div>
+        <div class="bushSingle base" style="transform: translateX(900%);"></div>
+        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;"></div>
+        <div class="bottomTile"></div>
+      </div>
+    </div>
+    <div class="section about" id="about">
+      <div class="content">
+        <div class="nes-text text">
+          <h1 class="brickborder">About</h1>
+          <p>
+            Indian by birth. Passionate Game Designer and Tech Enthusiast by
+            choice. Hi! I am Aayush Shukla, a resident of Indore, India. I am
+            profoundly interested in learning new concepts and helping bring
+            brainstorming ideas to life. I specialize in Game Designing, Full
+            Stack Web Development
+          </p>
+        </div>
+      </div>
+
+      <div class="backgroundmap">
+        <div class="bushTriple base" style="transform: translateX(200%);"></div>
+        <div class="hillLarge base" style="transform: translateX(300%);"></div>
+        <div class="pipeVert base" style="transform:translateY(calc(-48px * 4));right: 0;"></div>
+        <div class="bottomTile"></div>
+      </div>
+    </div>
+    <div class="section work">
+      <div class="content">
+        empty2
+      </div>
+      <div class="backgroundmap">
+        <div class="Ubrick base" style="
+          height: calc(66px*20);
+          background-repeat: repeat-y;
+          transform: translateY(-80%);"></div>
+        <div class="UbottomTile"></div>
+      </div>
+    </div>
+    <div class="section work" id="work">
+      <div class="content">
+        <div class="nes-text text">
+          <h1>Work</h1>
+          <p>
+            I have acquired a reasonable amount of experience and expertise
+            working on solo as well as team projects throughout my school and
+            college life. My pieces of work inclue:
+          </p>
+        </div>
+        <div class="backgroundmap">
+          <div class="Ubrick base" style="
+            height: calc(66px*20);
+            background-repeat: repeat-y;
+            transform: translateY(-105%);right: 0;"></div>
+          <div class="UbottomTile"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section contact">
+      <div class="content">
+        empty3
+      </div>
+      <div class="backgroundmap">
+        <div class="bottomTile"></div>
+      </div>
+    </div>
+    <div class="section contact" id="contact">
+      <div class="content">
+        <div class="nes-text text">
+          <h1>Contact</h1>
+          <p>
+            If you wish to work with me or have queries of any kind on my
+            projects, feel free to contact me on any of these:
+          </p>
+        </div>
+        <div class="backgroundmap">
+          <div class="flagPole base" style="transform: translateY(-79%); z-index: 5;"></div>
+          <div class="hillLarge base" style="transform: translateY(-50%);"></div>
+          <div class="bushTriple base" style="transform: translateX(200%);"></div>
+          <div class="hillSmall base" style="transform: translateX(400%);"></div>
+          <div class="bushSingle base" style="transform: translateX(900%);"></div>
+          <section class="nes-pointer">
+            <div class="castle base" style="transform: translateY(-80%) translateX(250%);"
+              onclick="document.getElementById('dialog-rounded').showModal();">
+              <div class="nes-balloon from-right" style="transform: translateX(-50px) translateY(-50px);">
+                Click Me!
+              </div>
+            </div>
+            <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+              <form method="dialog">
+                <p class="title">Contact Me!</p>
+                <div class="nes-field">
+                  <label for="name_field">Your name</label>
+                  <input type="text" id="name_field" class="nes-input">
+                </div>
+                <div class="nes-field">
+                  <label for="name_field">Your email address</label>
+                  <input type="email" id="name_field" class="nes-input">
+                </div>
+                <label for="textarea_field">Your message</label>
+                <textarea id="textarea_field" class="nes-textarea"></textarea>
+                <menu class="dialog-menu">
+                  <button class="nes-btn">Cancel</button>
+                  <button class="nes-btn is-primary">Confirm</button>
+                </menu>
+              </form>
+            </dialog>
+          </section>
+          <div class="pipeSet base" style="transform: translateY(-70%) scaleX(-1);z-index: 500;right: 0;"></div>
+          <div class="bottomTile"></div>
+          <div class="bottomTile"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script language="javascript" src="scripts/functionalities.js"></script>
+  <script src="scripts/mariocoin.js"></script>
+</body>
+
 </html>

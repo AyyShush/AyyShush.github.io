@@ -290,6 +290,12 @@ header ul li a {
   height: 66px;
   position: absolute;
 }
+.flagPole{
+  background: url(../Images/flag.png) no-repeat;
+  width: 100px;
+  height: 718px;
+  position: absolute;
+}
 
 .high {
   bottom: calc(60%);
