@@ -1,6 +1,5 @@
 $('div.mariocoin').click(function(){
 	var mario = $(this);
-	mario.find('div.box').css('margin-top','-25px');
 	if (mario.find('span.coin').hasClass( "play" ) ) {
 		mario.find('div.box').addClass('empty');
 		$("<audio class='block'></audio>").attr({ 

@@ -1,7 +1,6 @@
 div.mariocoin {
-    display:table;
-    position:relative;
-    margin:250px auto 0 auto;
+    position: absolute;;
+    transform: scaleX(0.45333333333) scaleY(0.44) translateY(-150px);
   }
   
   div.mariocoin span.coin{
@@ -13,7 +12,7 @@ div.mariocoin {
   }
   
   div.mariocoin div.box{
-    position:relative;
+    position: absolute;;
     width:150px;
     height:150px;
     z-index:1;
