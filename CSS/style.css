@@ -32,7 +32,7 @@ body {
   position: fixed;
   width: 88px;
   height: 96px;
-  top: 80%;
+  top: calc(80%);
   left: 0%;
   background: url('mariosprite96x102.png') left center;
   animation: run 0.4s steps(4) infinite;
@@ -47,7 +47,7 @@ body {
   position: fixed;
   width: 88px;
   height: 96px;
-  top: 80%;
+  top: calc(80% + 0px);
   left: 0%;
   background: url('mariosprite96x102.png') left center;
   transform: scale(0.5);

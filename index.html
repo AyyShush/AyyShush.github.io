@@ -12,7 +12,7 @@
 
 <body>
 
-  <div id="mario" class="mariofaceR" style="z-index: 100;"></div>
+  <div id="mario" class="mariofaceR" style="z-index: 10;"></div>
   <marquee width="100%"><img src="Images/Cloud - Double.png" /></marquee>
   <header>
     <a href="#" class="logo">AyyShush!</a>
@@ -59,7 +59,7 @@
         <div class="bushTriple base" style="transform: translateX(200%);"></div>
         <div class="hillSmall base" style="transform: translateX(400%);"></div>
         <div class="bushSingle base" style="transform: translateX(900%);"></div>
-        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;"></div>
+        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;" id="pipe1"></div>
         <div class="bottomTile"></div>
       </div>
     </div>
@@ -80,7 +80,7 @@
       <div class="backgroundmap">
         <div class="bushTriple base" style="transform: translateX(200%);"></div>
         <div class="hillLarge base" style="transform: translateX(300%);"></div>
-        <div class="pipeVert base" style="transform:translateY(calc(-48px * 4));right: 0;"></div>
+        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 10px; z-index: 50;"></div>
         <div class="bottomTile"></div>
       </div>
     </div>
@@ -120,11 +120,14 @@
         empty3
       </div>
       <div class="backgroundmap">
+        <div class="pipeVert base" style="z-index: 20;;transform:translateY(calc(-48px * 2));left: 20px;"></div>
+        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;"></div>
         <div class="brick low" style="transform: translateX(1200%);"></div>
         <div class="brick low" style="transform: translateX(1298%);"></div>
         <div class="coinFull low" style="transform: translateX(1397%);"></div>
         <div class="brick low" style="transform: translateX(1495%);"></div>
         <div class="bushSingle base" style="transform: translateX(200%);"></div>
+        <div class="hillLarge base" style="transform: translateX(200%) translateY(-50%);"></div>
         <div class="bottomTile"></div>
       </div>
     </div>
@@ -147,7 +150,7 @@
             <div class="castle base" style="transform: translateY(-80%) translateX(250%);"
               onclick="document.getElementById('dialog-rounded').showModal();">
               <div class="nes-balloon from-right" style="transform: translateX(-50px) translateY(-50px);">
-                Click Me!
+                <p style="color: black;">Click Me!</p>
               </div>
             </div>
             <dialog class="nes-dialog is-rounded" id="dialog-rounded">
@@ -180,5 +183,4 @@
   <script language="javascript" src="scripts/functionalities.js"></script>
   <script src="scripts/mariocoin.js"></script>
 </body>
-
 </html>
