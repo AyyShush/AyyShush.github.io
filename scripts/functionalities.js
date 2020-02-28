@@ -18,6 +18,8 @@ window.onscroll = function (e) {
   positionM = parseInt((scrollY / (document.body.scrollHeight - document.body.clientHeight)) * 100);
   if (positionM <= 78)
     document.getElementById("mario").style.left = positionM + "%";
+  else
+  document.getElementById("mario").style.left = 78 + "%";
 
   scrollTimer = window.setTimeout("scrollFinished()", 350);
   this.oldScroll = this.scrollY;
@@ -84,18 +86,18 @@ function changeYPos() {
   });
 }
 function collision($div1, $div2) {
-  var x1 = $div1.offset().left;
+  var x1 = $div1.offset().left- 48;
   var y1 = $div1.offset().top;
   var h1 = $div1.outerHeight(true);
   var w1 = $div1.outerWidth(true);
   var b1 = y1 + h1;
-  var r1 = x1 + w1 - (getScrollbarWidth() * 2);
-  var x2 = $div2.offset().left;
+  var r1 = x1 + w1;
+  var x2 = $div2.offset().left- getScrollbarWidth();
   var y2 = $div2.offset().top;
   var h2 = $div2.outerHeight(true);
   var w2 = $div2.outerWidth(true);
   var b2 = y2 + h2;
-  var r2 = x2 + w2 - (getScrollbarWidth() * 2);
+  var r2 = x2 + w2;
   //console.log(Math.round(r1-r2));
   if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
   return true;
@@ -113,12 +115,12 @@ async function marioJump() {
   }
   if (isOnPipe && collisionBool) {
     marioRef.className = "mariofaceR";
-    marioRef.style.top = "calc(80% - 144px)";
+    marioRef.style.top = "calc(80% - 153px)";
     return true;
   }
   else if (collisionBool) {
     marioRef.className = "marioJump";
-    marioRef.style.top = "calc(80% - 144px)";
+    marioRef.style.top = "calc(80% - 153px)";
     isOnPipe = true;
     console.log("collision with " + abc[i]);
     //setTimeout(function (e) {

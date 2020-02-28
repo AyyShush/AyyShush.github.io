@@ -13,13 +13,12 @@
 <body>
 
   <div id="mario" class="marioFaceR" style="z-index: 10;top: 80%;"></div>
-  <marquee width="100%"><img src="Images/Cloud - Double.png" /></marquee>
   <header>
     <a href="#" class="logo">AyyShush!</a>
     <ul>
       <li><a class="nes-btn" onclick="scrolltoY(0);">Home</a></li>
       <li><a class="nes-btn" onclick="scrolltoY(2);">About</a></li>
-      <li><a class="nes-btn" onclick="scrolltoY(4);">Work</a></li>
+      <li><a class="nes-btn" onclick="scrolltoY(3);">Work</a></li>
       <li><a class="nes-btn" onclick="scrolltoY(6);">Contact</a></li>
     </ul>
   </header>
@@ -54,7 +53,7 @@
         <div class="coinFull low" style="transform: translateX(1495%);"></div>
         <div class="brick low" style="transform: translateX(1596%);"></div>
         <div class="coinFull High" style="transform: translateX(1400%);"></div>
-
+        <marquee width="100%" class="High" style="transform: translateY(100%);"><img src="Images/Cloud - Double.png" /></marquee>
         <div class="hillLarge base"></div>
         <div class="bushTriple base" style="transform: translateX(200%);"></div>
         <div class="hillSmall base" style="transform: translateX(400%);"></div>
@@ -79,24 +78,14 @@
 
       <div class="backgroundmap">
         <div class="bushTriple base" style="transform: translateX(200%);"></div>
+        <marquee width="100%" class="High" style="transform: translateY(100%);"><img src="Images/Cloud - Triple.png" /></marquee>
         <div class="hillLarge base" style="transform: translateX(300%);"></div>
-        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 10px; z-index: 50;" id="pipe2"></div>
+        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 10px; z-index: 50;" id="pipe2">
+        </div>
         <div class="bottomTile"></div>
       </div>
     </div>
     <div class="section work">
-      <div class="content">
-        empty2
-      </div>
-      <div class="backgroundmap">
-        <div class="Ubrick base" style="
-          height: calc(66px*40);
-          background-repeat: repeat-y;
-          transform: translateY(-80%);"></div>
-        <div class="UbottomTile"></div>
-      </div>
-    </div>
-    <div class="section work" id="work">
       <div class="content">
         <div class="nes-text text">
           <h1>Work</h1>
@@ -106,21 +95,40 @@
             college life. My pieces of work inclue:
           </p>
         </div>
+      </div>
+      <div class="backgroundmap">
+        <div class="Ubrick base" style="
+          height: calc(66px*40);
+          background-repeat: repeat-y;
+          transform: translateY(-110%);"></div>
+        <div class="UbottomTile"></div>
+      </div>
+    </div>
+    <div class="section work" id="work">
+      <div class="content">
+        <div class="nes-text text">
+          <h1>Work</h1>
+          <p>
+          </p>
+        </div>
         <div class="backgroundmap">
           <div class="Ubrick base" style="
             height: calc(66px*40);
             background-repeat: repeat-y;
-            transform: translateY(-80%);right: 0;"></div>
+            transform: translateY(-110%);right: 0;"></div>
           <div class="UbottomTile"></div>
         </div>
       </div>
     </div>
     <div class="section contact">
       <div class="content">
-        empty3
+
       </div>
       <div class="backgroundmap">
-        <div class="pipeVert base" style="z-index: 20;;transform:translateY(calc(-48px * 2));left: 20px;" id="pipe3"></div>
+        <div class="pipeVert base" style="z-index: 20;;transform:translateY(calc(-48px * 2));left: 20px;" id="pipe3">
+        </div>
+        <marquee width="100%" class="High" style="transform: translateY(100%);" scrollamount="5"><img src="Images/Cloud - Triple.png" /></marquee>
+        <marquee width="100%" class="High" style="transform: translateY(150%);" scrollamount="1"><img src="Images/Cloud - Single.png" /></marquee>
         <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;" id="pipe4"></div>
         <div class="brick low" style="transform: translateX(1200%);"></div>
         <div class="brick low" style="transform: translateX(1298%);"></div>
@@ -142,6 +150,8 @@
         </div>
         <div class="backgroundmap">
           <div class="flagPole base" style="transform: translateY(-79%); z-index: 5;"></div>
+          <marquee width="100%" class="High" style="transform: translateY(100%);" scrollamount="5"><img src="Images/Cloud - Triple.png" /></marquee>
+          <marquee width="100%" class="High" style="transform: translateY(150%);" scrollamount="1"><img src="Images/Cloud - Single.png" /></marquee>
           <div class="hillLarge base" style="transform: translateY(-50%);"></div>
           <div class="bushTriple base" style="transform: translateX(200%);"></div>
           <div class="hillSmall base" style="transform: translateX(400%);"></div>
@@ -149,7 +159,7 @@
           <section class="nes-pointer">
             <div class="castle base" style="transform: translateY(-80%) translateX(250%);"
               onclick="document.getElementById('dialog-rounded').showModal();">
-              <div class="nes-balloon from-right" style="transform: translateX(-50px) translateY(-50px);">
+              <div class="nes-balloon from-right" style="transform: translateX(-80%) translateY(-50px);">
                 <p style="color: black;">Click Me!</p>
               </div>
             </div>
@@ -183,4 +193,5 @@
   <script language="javascript" src="scripts/functionalities.js"></script>
   <script src="scripts/mariocoin.js"></script>
 </body>
+
 </html>
