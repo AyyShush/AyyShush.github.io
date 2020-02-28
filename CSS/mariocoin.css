@@ -1,6 +1,6 @@
 div.mariocoin {
     position: absolute;;
-    transform: scaleX(0.45333333333) scaleY(0.44) translateY(-150px);
+    transform: scaleX(0.45333333333) scaleY(0.44) translateY(-150 px);
   }
   
   div.mariocoin span.coin{
