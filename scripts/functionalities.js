@@ -92,7 +92,7 @@ function collision($div1, $div2) {
   var w1 = $div1.outerWidth(true);
   var b1 = y1 + h1;
   var r1 = x1 + w1;
-  var x2 = $div2.offset().left- getScrollbarWidth();
+  var x2 = $div2.offset().left- 48;
   var y2 = $div2.offset().top;
   var h2 = $div2.outerHeight(true);
   var w2 = $div2.outerWidth(true);
