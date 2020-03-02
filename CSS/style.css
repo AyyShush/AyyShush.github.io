@@ -189,6 +189,25 @@ header ul li a {
   overflow: visible;
 }
 
+#container .section .content {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+#container .section .content h1 {
+  display: block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+#container .section .content .skilltable {
+  display: block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding-left: 15px;
+  padding-right:15px;
+}
 #container .section .backgroundmap .bottomTile,
 .UbottomTile {
   background-image: url(../Images/TileBottom.png);
@@ -202,17 +221,6 @@ header ul li a {
 }
 #container .section .backgroundmap .UbottomTile {
   background-image: url(../Images/UTileBottom.png);
-}
-#container .section .content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#container .section .content h1 {
-  display: block;
-  position: relative;
-  align-items: center;
-  justify-content: center;
 }
 
 .brickborder {
