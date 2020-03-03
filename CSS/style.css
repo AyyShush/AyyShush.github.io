@@ -200,14 +200,6 @@ header ul li a {
   align-items: center;
   justify-content: center;
 }
-#container .section .content .skilltable {
-  display: block;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  padding-left: 15px;
-  padding-right:15px;
-}
 #container .section .backgroundmap .bottomTile,
 .UbottomTile {
   background-image: url(../Images/TileBottom.png);
