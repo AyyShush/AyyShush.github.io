@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="CSS/mariocoin.css" />
   <link rel="stylesheet" type="text/css" href="CSS/typewriter.css" />
-  <link rel="stylesheet" type="text/css" href="CSS/carousel.css"/>
+  <link rel="stylesheet" type="text/css" href="CSS/carousel.css" />
   <title>Aayush Shukla</title>
   <style>
     a:link {
@@ -49,9 +49,11 @@
     .nes-progress {
       height: 20px;
     }
-    .nes-badge{
+
+    .nes-badge {
       margin: 0px;
     }
+
     tr {
       width: 100%;
     }
@@ -62,12 +64,37 @@
       justify-content: center;
       align-items: center;
     }
-
   </style>
 </head>
 
-<body>
+<body onload="document.getElementById('startAlert').showModal();">
+  <section>
+    <dialog class="nes-dialog is-rounded" id="startAlert">
+      <form method="dialog">
+        <h3 class="title">Welcome to my Webpage</h3>
+        <p>The page contains some basic information and features an<br>
+          image carousel along with some hyperlinks which redirect to<br>
+          the respectiveyoutube videos of the things that i created either <br>
+          while practicing game des or while making some projects.<br>
+        </p>
+        <p>
+          The Website was designed in order to work on Chrome alongside a<br>
+          device that features a wide screen such as a laptop or a computer.<br>
+          Additionally, some parts of the website are yet to be made<br>
+          responsive thus elements might be glitchy on devices with a <br>
+          screen resolution less than 1920 by 1080p therefore, zoom-out a<br>
+           little if you're on a device with lower resolution.<br>
 
+        </p>
+        <center>
+          <menu class="dialog-menu" style="align-items: center;padding-right: 10%;">
+            <button class="nes-btn is-success">Close</button>
+          </menu>
+        </center>
+
+      </form>
+    </dialog>
+  </section>
   <div id="mario" class="marioFaceR" style="z-index: 10;top: 80%;"></div>
   <header>
     <a href="#" class="logo">AyyShush!</a>
@@ -88,7 +115,7 @@
           <img src="Images/Sans.png" style="max-width:20%;max-height:20%;" />
         </h1>
       </center>
-      <br/>
+      <br />
       <div class="content">
         <center>
           <div class="text">
@@ -132,7 +159,7 @@
               choice. Hi! I am Aayush Shukla, a resident of Indore, India. I am
               profoundly interested in learning new concepts and helping bring
               brainstorming ideas to life. I specialize in Full Stack Web Development
-            and I am a game design aspirant.</p>
+              and I am a game design aspirant.</p>
           </div>
           <br>
           <div class="nes-container is-dark with-title">
@@ -308,10 +335,10 @@
               <a href="#slide-10" style="color: black;">10</a>
               <div class="slides">
                 <div id="slide-1">
-                    <img src="Slides/slide-1.png">
-                    <a href="https://youtu.be/ftEZJavfR8E" class="nes-badge">
-                      <span class="is-error">Student <br>Teacher <br>Web Portal <br>Demo Video</span>
-                    </a>
+                  <img src="Slides/slide-1.png">
+                  <a href="https://youtu.be/ftEZJavfR8E" class="nes-badge">
+                    <span class="is-error">Student <br>Teacher <br>Web Portal <br>Demo Video</span>
+                  </a>
                 </div>
                 <div id="slide-2">
                   <img src="Slides/slide-2.png">
@@ -348,10 +375,10 @@
                   <a href="https://www.youtube.com/watch?v=Zw4xdJDdjks" class="nes-badge is-Icon">
                     <span class="is-primary">Video <br>Demo</span>
                   </a>
-                  
+
                 </div>
                 <div id="slide-9">
-                  <img src="Slides/slide-9.PNG">  
+                  <img src="Slides/slide-9.PNG">
                   <a href="https://youtu.be/crPe077gKe8" class="nes-badge">
                     <span class="is-primary">Pong 2D<br>Gameplay<br> Video</span>
                   </a>
@@ -365,7 +392,7 @@
               </div>
             </div>
           </center>
-         
+
 
         </div>
         <div class="backgroundmap">
