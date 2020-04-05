@@ -73,31 +73,10 @@ body {
   width: 88px;
   height: 96px;
   left: 0%;
-  background: url('mariosprite96x102.png') left center;
-  animation: jump 0.4s steps(4) 1 forwards;
+  background: url('../Images/mariojump.png') left center;
   transform: scale(0.5);
 }
-@keyframes bounce-3 {
-  0%   {background: url('../Images/mariojump.png') left center;transform: translateY(0) scale(0.5);; }
-  30%  {background: url('../Images/mariojump.png') left center; transform: translateY(-144px) scale(0.5);; }
-  50%  {background: url('../Images/mariojump.png') left center; transform: translateY(-144px) scale(0.5);; }
-  99%  {background: url('../Images/mariojump.png') left center; transform: translateY(-144px) scale(0.5);; } 
-  100% {background: url('mariosprite96x102.png') left center; transform: translateY(-144px) scale(0.5);; }
-}
-@keyframes jump{
-  0%{
-    background: url('../Images/mariojump.png') left center;
-  }
-  50%{
-    background: url('../Images/mariojump.png') left center;
-  }
-  99%{
-    background: url('../Images/mariojump.png') left center;
-  }
-  100%{
-    background: url('mariosprite96x102.png') left center;
-  }
-}
+
 
 .home {
   background-color: #010000;

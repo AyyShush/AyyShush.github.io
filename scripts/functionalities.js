@@ -19,13 +19,13 @@ window.onscroll = function (e) {
   if (positionM <= 78)
     document.getElementById("mario").style.left = positionM + "%";
   else
-  document.getElementById("mario").style.left = 78 + "%";
+    document.getElementById("mario").style.left = 78 + "%";
 
   scrollTimer = window.setTimeout("scrollFinished()", 350);
   this.oldScroll = this.scrollY;
 }
 function scrollFinished() {
-  marioJump();
+  document.getElementById("mario").className = "mariofaceR";
 
 }
 function getScrollbarWidth() {
@@ -86,13 +86,13 @@ function changeYPos() {
   });
 }
 function collision($div1, $div2) {
-  var x1 = $div1.offset().left- 48;
+  var x1 = $div1.offset().left - 48;
   var y1 = $div1.offset().top;
   var h1 = $div1.outerHeight(true);
   var w1 = $div1.outerWidth(true);
   var b1 = y1 + h1;
   var r1 = x1 + w1;
-  var x2 = $div2.offset().left- 48;
+  var x2 = $div2.offset().left - 48;
   var y2 = $div2.offset().top;
   var h2 = $div2.outerHeight(true);
   var w2 = $div2.outerWidth(true);
@@ -104,6 +104,7 @@ function collision($div1, $div2) {
 }
 var isOnPipe = false;
 async function marioJump() {
+  // console.log("Mario jump check called");
   var abc = new Array('#pipe1', '#pipe2', '#pipe3', '#pipe4');
   var marioRef = document.getElementById("mario");
   var collisionBool;
@@ -114,7 +115,7 @@ async function marioJump() {
       continue;
   }
   if (isOnPipe && collisionBool) {
-    marioRef.className = "mariofaceR";
+
     marioRef.style.top = "calc(80% - 153px)";
     return true;
   }
@@ -130,9 +131,9 @@ async function marioJump() {
   }
   else if (!collisionBool) {
     marioRef.style.top = "80%";
-    marioRef.className = "mariofaceR";
     isOnPipe = false;
     console.log("returning false");
     return false;
   }
 }
+setInterval(marioJump, 100);
