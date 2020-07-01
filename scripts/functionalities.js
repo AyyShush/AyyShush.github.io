@@ -55,10 +55,7 @@ $(window).scroll(function () {
   console.log(value);
   $('#container').css('left', -value * 6 + '%');
   containerSize = parseFloat($('#container').css('left'));
-  if (parseInt(Math.round(value)) == 100) {
-    console.log("loading extra space");
-    $('#container').css('left', containerSize - (6 * getScrollbarWidth()));
-  }
+
 
   //  console.log(containerSize);
 })
@@ -69,7 +66,7 @@ function scrolltoY(num) {
   console.log(num);
   var bleh = document.body.scrollHeight - document.body.clientHeight;
   var scrollAm = (num * bleh) / 100;
-  window.scrollTo(0, scrollAm + toSubtract);
+  window.scrollTo(0, scrollAm);
 }
 
 function changeYPos() {

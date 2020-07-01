@@ -17,7 +17,9 @@ body {
   scroll-behavior: smooth;
   font-family: 'Press Start 2P', ;
 }
-
+body::-webkit-scrollbar{
+  display:none;
+}
 .nes-progress {
   height: 25px;
 }
