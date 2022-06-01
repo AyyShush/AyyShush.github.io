@@ -80,7 +80,7 @@
         <p>
           The Website was designed in order to work on a<br>
           device that features a widescreen such as a laptop or<br>
-           a computer using on Chrome or any other similar browser.<br>
+          a computer using on Chrome or any other similar browser.<br>
           Additionally, some parts of the website are yet to be made<br>
           responsive thus some elements may be glitchy on devices with a<br>
           screen resolution less than 1920 x 1080p therefore, zoom-out a<br>
@@ -439,18 +439,22 @@
                 <li>
                   <!-- instagram -->
                   <a href="https://www.instagram.com/ayyshush/"> <i class="nes-icon instagram"></i><span>
-                      ayyshush</span></a></li>
+                      ayyshush</span></a>
+                </li>
                 <li>
                   <!-- github -->
-                  <a href="https://github.com/AyyShush/"><i class="nes-icon github"></i><span> ayyshush</span></a></li>
+                  <a href="https://github.com/AyyShush/"><i class="nes-icon github"></i><span> ayyshush</span></a>
+                </li>
                 <li>
                   <!-- gmail -->
                   <a href="mailto:aayushshukla11@gmail.com"><i class="nes-icon gmail"></i><span>
-                      aayushshukla11@gmail.com</span></a></li>
+                      aayushshukla11@gmail.com</span></a>
+                </li>
                 <li>
                   <!-- linkedin -->
                   <a href="https://www.linkedin.com/in/ayyshush/"><i class="nes-icon linkedin"></i><span>
-                      ayyshush</span></a></li>
+                      ayyshush</span></a>
+                </li>
               </ul>
             </div>
 
@@ -478,21 +482,22 @@
               </div>
             </div>
             <dialog class="nes-dialog is-rounded" id="dialog-rounded">
-              <form method="dialog">
+              <!-- <form method="dialog">-->
+              <form action="https://formspree.io/f/mjvllzoq" method="post">
                 <p class="title">Contact Me!</p>
                 <div class="nes-field">
                   <label for="name_field">Your name</label>
-                  <input type="text" id="name_field" class="nes-input">
+                  <input type="text" id="name_field" name="name" class="nes-input">
                 </div>
                 <div class="nes-field">
                   <label for="name_field">Your email address</label>
-                  <input type="email" id="name_field" class="nes-input">
+                  <input type="email" id="name_field" name="email" class="nes-input">
                 </div>
                 <label for="textarea_field">Your message</label>
-                <textarea id="textarea_field" class="nes-textarea"></textarea>
+                <textarea id="textarea_field" class="nes-textarea" name="message"></textarea>
                 <menu class="dialog-menu">
                   <button class="nes-btn">Cancel</button>
-                  <button class="nes-btn is-primary">Confirm</button>
+                  <button class="nes-btn is-primary" type="submit">Confirm</button>
                 </menu>
               </form>
             </dialog>
