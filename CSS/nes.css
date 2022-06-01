@@ -2098,6 +2098,19 @@ input[type="checkbox"] {
   transform-origin: top left;
 }
 
+
+.itch{
+  position: absolute;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  transform: scale(2);
+  transform-origin: top left;
+  
+  background: url("../Images/Itch.png");
+}
 .nes-icon.is-small {
   margin: 0;
   transform: scale(1);
