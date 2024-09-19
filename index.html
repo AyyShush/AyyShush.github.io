@@ -1,536 +1,218 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/5ec57f8a93.js" crossorigin="anonymous"></script>
-  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-  <link rel="STYLESHEET" type="text/css" href="CSS/style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="CSS/mariocoin.css" />
-  <link rel="stylesheet" type="text/css" href="CSS/typewriter.css" />
-  <link rel="stylesheet" type="text/css" href="CSS/carousel.css" />
-  <title>Aayush Shukla</title>
-  <style>
-    a:link {
-      text-decoration: none;
-      color: white;
-    }
-
-    a:visited {
-      text-decoration: none;
-      color: white;
-    }
-
-    a:hover {
-      color: white;
-      text-decoration: none;
-    }
-
-    a:active {
-      color: white;
-      text-decoration: none;
-    }
-
-    .grow {
-      border-radius: 10px;
-      height: 11%;
-      width: 100%;
-      margin: 5px 1% 5px 1%;
-      float: left;
-      position: relative;
-      transition: height 0.5s;
-      -webkit-transition: height 0.5s;
-      overflow: hidden;
-    }
-
-    .grow:hover {
-      height: 300px;
-    }
-
-    .nes-progress {
-      height: 20px;
-    }
-
-    .nes-badge {
-      margin: 0px;
-    }
-
-    tr {
-      width: 100%;
-    }
-
-    th,
-    td {
-      padding-left: 100px;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalgia OS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="icon" href="Images/Retro/Microsoft_Logo_Wingdings_Font.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/retro.css">
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
 </head>
+<body class="theme-default">
+    <audio id="ambientSound" src="Audio/DialUpAmbience.mp3" loop></audio>
+    <audio id="startupsound" src="Audio/startup.mp3"></audio>
 
-<body onload="document.getElementById('startAlert').showModal();">
-  <section>
-    <dialog class="nes-dialog is-rounded" id="startAlert">
-      <form method="dialog">
-        <h3 class="title">Welcome to my Webpage</h3>
-        <p>The page contains basic information and features described by an<br>
-          image carousel along with some hyperlinks which redirect to<br>
-          the corresponding YouTube videos of work during<br>
-          practicing game des or while making some projects.<br>
-        </p>
-        <p>
-          The Website was designed in order to work on a<br>
-          device that features a widescreen such as a laptop or<br>
-          a computer using on Chrome or any other similar browser.<br>
-          Additionally, some parts of the website are yet to be made<br>
-          responsive thus some elements may be glitchy on devices with a<br>
-          screen resolution less than 1920 x 1080p therefore, zoom-out a<br>
-          little if you're on a device with lower resolution.<br>
-        </p>
-        <center>
-          <menu class="dialog-menu" style="align-items: center;padding-right: 10%;">
-            <button class="nes-btn is-success">Close</button>
-          </menu>
-        </center>
-
-      </form>
-    </dialog>
-  </section>
-  <div id="mario" class="marioFaceR" style="z-index: 10;top: 80%;"></div>
-  <header>
-    <a href="#" class="logo">AyyShush!</a>
-    <ul>
-      <li><a class="nes-btn" onclick="scrolltoY(0);">Home</a></li>
-      <li><a class="nes-btn" onclick="scrolltoY(2);">About</a></li>
-      <li><a class="nes-btn" onclick="scrolltoY(3);">Skills</a></li>
-      <li><a class="nes-btn" onclick="scrolltoY(4);">Work</a></li>
-      <li><a class="nes-btn" onclick="scrolltoY(6);">Contact</a></li>
-    </ul>
-  </header>
-  <div id="container">
-    <div class="section home" id="home" style="padding: 100px;">
-      <div class="backgroundmap"></div>
-      <center>
-        <h1 style="background-color: #CC4B09;width: 50%;padding: 50px;color:#fff" class="nes-container is-rounded">
-          Aayush's Lore
-          <img src="Images/Sans.png" style="max-width:20%;max-height:20%;" />
-        </h1>
-      </center>
-      <br />
-      <div class="content">
-        <center>
-          <div class="text">
-            <p class="typewriter" style="color: white;">
-              Scroll further to start an adventure!
-            </p>
-          </div>
-        </center>
-
-      </div>
-    </div>
-    <div class="section about">
-      <div class="content">
-        Welcome to The Life of Aayush Shukla. Take a dive and learn more about
-        the 22 years of my existence!
-      </div>
-      <div class="backgroundmap">
-        <div class="coinFull low" style="transform: translateX(1000%);"></div>
-        <div class="brick low" style="transform: translateX(1200%);"></div>
-        <div class="coinFull low" style="transform: translateX(1298%);"></div>
-        <div class="brick low" style="transform: translateX(1397%);"></div>
-        <div class="coinFull low" style="transform: translateX(1495%);"></div>
-        <div class="brick low" style="transform: translateX(1596%);"></div>
-        <div class="coinFull High" style="transform: translateX(1400%);"></div>
-        <marquee width="100%" class="High" style="transform: translateY(100%);"><img src="Images/Cloud - Double.png" />
-        </marquee>
-        <div class="hillLarge base"></div>
-        <div class="bushTriple base" style="transform: translateX(200%);"></div>
-        <div class="hillSmall base" style="transform: translateX(400%);"></div>
-        <div class="bushSingle base" style="transform: translateX(900%);"></div>
-        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;" id="pipe1"></div>
-        <div class="bottomTile"></div>
-      </div>
-    </div>
-    <div class="section about" id="about">
-      <div class="content">
-        <div class="nes-text text">
-          <h1>About</h1>
-          <div class="nes-container is-dark">
-            <p>Indian by birth. Passionate Game Designer and Tech Enthusiast by
-              choice. Hi! I am Aayush Shukla, a resident of London, United Kingdom. I am
-              profoundly interested in learning new concepts and helping bring
-              brainstorming ideas to life. I specialize in Game Development,
-              VR/AR Development and Full Stack Web Development.
-            </p>
-          </div>
-          <br>
-          <div class="nes-container is-dark with-title">
-            <p class="title">Things I do</p>
-            <div class="lists">
-              <ul class="nes-list is-disc">
-                <li>Game and VR Development</li>
-                <li>3D Modeling</li>
-                <li>Texturing using Substance painter</li>
-                <li>Pixel Art</li>
-                <li>Web Development</li>
-                <li>Casual Gaming</li>
-              </ul>
+    <div class="loader" id="loaderScreen">
+        <div class="foreground">
+            <h1> * * * Nostalgia OS * * * </h1>
+            <h5 class="skip">Press Spacebar to skip</h5>
+            <div class="ct">
+                <p>
+                    BIOS v1.0.0<br>
+                    (C) Retro Computing Corporation
+                </p>
+                <div class="typewriter">
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-
-      <div class="backgroundmap">
-        <div class="bushTriple base" style="transform: translateX(200%);"></div>
-        <marquee width="100%" class="High" style="transform: translateY(100%);"><img src="Images/Cloud - Triple.png" />
-        </marquee>
-        <div class="hillLarge base" style="transform: translateX(300%);"></div>
-        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 10px; z-index: 50;" id="pipe2">
-        </div>
-        <div class="bottomTile"></div>
-      </div>
     </div>
-    <div class="section work">
-      <div class="content">
-        <div class="nes-text text" style="color:aliceblue;">
-          <h1>Skills</h1>
-          <div class="skilltable">
-            <table border="0" style="font-size: 12px;border-spacing: 30px;color: white;">
-              <tr>
-                <td rowspan="2">
-                  <div class="nes-container is-dark is-rounded with-title">
-                    <p class="title"> Graphic and Game Designing Softwares :</p>
-                    <div>
-                      Unity
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-primary" value="90" max="100">
-                      </progress>
-                    </div>
 
-                    <div>
-                      Blender
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-primary" value="90" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      Substance Painter
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-success" value="80" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      Photoshop
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-success" value="70" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      Unreal Engine
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-warning" value="50" max="100">
-                      </progress>
-                    </div>
-                  </div>
-
-                </td>
-                <td>
-                  <div class="nes-container is-rounded is-dark with-title">
-                    <p class="title"> Programming Knowledge :</p>
-                    <div>
-                      C++
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-primary" value="90" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      C sharp for unity
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-primary" value="90" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      C
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-success" value="80" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      Java
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-warning" value="70" max="100">
-                      </progress>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr style="padding-top: 10px;">
-                <td>
-                  <br>
-                  <br>
-
-                  <div class="nes-container is-rounded is-dark with-title">
-                    <p class="title"> Web Development Knowledge :</p>
-                    <div>
-                      JavScript
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-primary" value="95" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      HTML
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-primary" value="90" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      PHP
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-success" value="80" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      CSS
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-warning" value="70" max="100">
-                      </progress>
-                    </div>
-                    <div>
-                      JQuery
-                    </div>
-                    <div>
-                      <progress class="nes-progress is-warning" value="70" max="100">
-                      </progress>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-            </table>
-          </div>
-
+    <div class="desktop">
+        <div class="context-menu" id="context-menu">
+            <ul>
+                <li id="about">About</li>
+                <li id="themes">Themes</li>
+                <li id="format" class="danger">Format C:\></li>
+            </ul>
         </div>
-      </div>
-      <div class="backgroundmap">
-        <div class="Ubrick base" style="
-          height: calc(66px*40);
-          background-repeat: repeat-y;
-          transform: translateY(-110%);"></div>
-        <div class="UbottomTile"></div>
-      </div>
-    </div>
-    <div class="section work" id="work" style="color: white;">
-      <div class="content">
-        <div class="nes-text text">
-          <center>
-            <h1>Work</h1>
-            <div class="slider nes-container is-rounded" style="background-color:#CC4B09;color: black;">
-              <a href="#slide-1" style="color: black;">1</a>
-              <a href="#slide-2" style="color: black;">2</a>
-              <a href="#slide-3" style="color: black;">3</a>
-              <a href="#slide-4" style="color: black;">4</a>
-              <a href="#slide-5" style="color: black;">5</a>
-              <a href="#slide-6" style="color: black;">6</a>
-              <a href="#slide-7" style="color: black;">7</a>
-              <a href="#slide-8" style="color: black;">8</a>
-              <a href="#slide-9" style="color: black;">9</a>
-              <a href="#slide-10" style="color: black;">10</a>
-              <div class="slides">
-                <div id="slide-1">
-                  <img src="Slides/slide-1.png">
-                  <a href="https://youtu.be/ftEZJavfR8E" class="nes-badge">
-                    <span class="is-error">Student <br>Teacher <br>Web Portal <br>Demo Video</span>
-                  </a>
-                </div>
-                <div id="slide-2">
-                  <img src="Slides/slide-2.png">
-                </div>
-                <div id="slide-3">
-                  <img src="Slides/slide-3.png">
-                  <div class="nes-badge">
-                    <span class="is-primary">Robot <br>Model <br>in Unity</span>
-                  </div>
-                </div>
-                <div id="slide-4">
-                  <img src="Slides/slide-4.png">
-                </div>
-                <div id="slide-5">
-                  <img src="Slides/slide-5.png">
-                  <a href="https://youtu.be/8vnJaGwUsjM" class="nes-badge">
-                    <span class="is-primary">Card <br>Game <br>Gameplay<br> Video</span>
-                  </a>
-                </div>
-                <div id="slide-6">
-                  <img src="Slides/slide-6.PNG">
-                  <a href="https://youtu.be/lWXffKAuHaM" class="nes-badge">
-                    <span class="is-primary">Text <br>Adventure <br>Gameplay<br> Video</span>
-                  </a>
-                </div>
-                <div id="slide-7">
-                  <img src="Slides/slide-7.png">
-                  <div class="nes-badge">
-                    <span class="is-success">Color <br>Switch<br> Clone</span>
-                  </div>
-                </div>
-                <div id="slide-8">
-                  <img src="Slides/slide-8.png">
-                  <a href="https://www.youtube.com/watch?v=Zw4xdJDdjks" class="nes-badge is-Icon">
-                    <span class="is-primary">Video <br>Demo</span>
-                  </a>
 
+        <div id="themesWindow" class="draggable" style="display: none;">
+            <div class="title-bar">
+                <div class="title-bar-text">Themes</div>
+                <div class="title-bar-controls">
+                    <button class="close-btn">&times;</button>
                 </div>
-                <div id="slide-9">
-                  <img src="Slides/slide-9.PNG">
-                  <a href="https://youtu.be/crPe077gKe8" class="nes-badge">
-                    <span class="is-primary">Pong 2D<br>Gameplay<br> Video</span>
-                  </a>
-                </div>
-                <div id="slide-10">
-                  <img src="Slides/slide-10.png">
-                  <div class="nes-badge is-small">
-                    <span class="is-primary">Pixel <br>Art <br>Character <br>Design</span>
-                  </div>
-                </div>
-              </div>
             </div>
-          </center>
-
-
-        </div>
-        <div class="backgroundmap">
-          <div class="Ubrick base" style="
-            height: calc(66px*40);
-            background-repeat: repeat-y;
-            transform: translateY(-110%);right: 0;"></div>
-          <div class="UbottomTile"></div>
-        </div>
-      </div>
-    </div>
-    <div class="section contact">
-      <div class="content">
-
-      </div>
-      <div class="backgroundmap">
-        <div class="pipeVert base" style="z-index: 20;;transform:translateY(calc(-48px * 2));left: 20px;" id="pipe3">
-        </div>
-        <marquee width="100%" class="High" style="transform: translateY(100%);" scrollamount="5"><img
-            src="Images/Cloud - Triple.png" /></marquee>
-        <marquee width="100%" class="High" style="transform: translateY(150%);" scrollamount="1"><img
-            src="Images/Cloud - Single.png" /></marquee>
-        <div class="pipeVert base" style="transform:translateY(calc(-48px * 2));right: 0;" id="pipe4"></div>
-        <div class="brick low" style="transform: translateX(1200%);"></div>
-        <div class="brick low" style="transform: translateX(1298%);"></div>
-        <div class="coinFull low" style="transform: translateX(1397%);"></div>
-        <div class="brick low" style="transform: translateX(1495%);"></div>
-        <div class="bushSingle base" style="transform: translateX(200%);"></div>
-        <div class="hillLarge base" style="transform: translateX(200%) translateY(-50%);"></div>
-        <div class="bottomTile"></div>
-      </div>
-    </div>
-    <div class="section contact" id="contact">
-      <div class="content">
-        <div class="nes-container is-rounded grow is-dark" style="color: aliceblue; right: 0px;">
-          <h2>Contact</h2>
-          <p style="font-size: 12px;">
-            If you wish to work with me or have queries of any kind on my
-            projects, feel free to contact me on any of these or fill up the form:
-          </p>
-          <section class="icon-list">
-            <div class="lists">
-              <ul class="nes-list is-disc">
-                <li>
-                  <!-- itch.io -->
-                  <a href="https://ayyshush.itch.io/"> <i class="fa-brands fa-itch-io"
-                      style="transform: scale(1.5);"></i><span>
-                      Itch.io</span></a>
-                </li>
-                <li>
-                  <!-- github -->
-                  <a href="https://github.com/AyyShush/"><i class="nes-icon github"></i><span> Github</span></a>
-                </li>
-                <li>
-                  <!-- gmail -->
-                  <a href="mailto:aayushshukla11@gmail.com"><i class="nes-icon gmail"></i><span>
-                      Email</span></a>
-                </li>
-                <li>
-                  <!-- linkedin -->
-                  <a href="https://www.linkedin.com/in/ayyshush/"><i class="nes-icon linkedin"></i><span>
-                      Linkedin</span></a>
-                </li>
-              </ul>
+            <div class="content">
+                <div class="monitor-image"></div>
+                <div>Select a desktop theme:</div>
+                <ul class="theme-list">
+                    <li class="theme-option" data-theme="theme1"><img src="path_to_icon1.png" alt="Icon">Martini Picnic</li>
+                    <li class="theme-option" data-theme="theme2"><img src="path_to_icon2.png" alt="Icon">Palermo Weekends</li>
+                    <li class="theme-option" data-theme="theme3"><img src="path_to_icon3.png" alt="Icon">Poolside FM (RIP)</li>
+                    <li class="theme-option" data-theme="theme4"><img src="path_to_icon4.png" alt="Icon">Poolsuite OS (Default)</li>
+                    <li class="theme-option" data-theme="theme5"><img src="path_to_icon5.png" alt="Icon">Pacific Breeze</li>
+                    <li class="theme-option" data-theme="theme6"><img src="path_to_icon6.png" alt="Icon">Lost in Tripoli</li>
+                    <li class="theme-option" data-theme="theme7"><img src="path_to_icon7.png" alt="Icon">Default OS</li>
+                </ul>
+                <button id="applyTheme">Apply</button>
             </div>
-
-
-
-
-
-          </section>
         </div>
-        <div class="backgroundmap">
-          <div class="flagPole base" style="transform: translateY(-79%); z-index: 5;"></div>
-          <marquee width="100%" class="High" style="transform: translateY(100%);" scrollamount="5"><img
-              src="Images/Cloud - Triple.png" /></marquee>
-          <marquee width="100%" class="High" style="transform: translateY(150%);" scrollamount="1"><img
-              src="Images/Cloud - Single.png" /></marquee>
-          <div class="hillLarge base" style="transform: translateY(-50%);"></div>
-          <div class="bushTriple base" style="transform: translateX(200%);"></div>
-          <div class="hillSmall base" style="transform: translateX(400%);"></div>
-          <div class="bushSingle base" style="transform: translateX(900%);"></div>
-          <section class="nes-pointer">
-            <div class="castle base" style="transform: translateY(-80%) translateX(250%);"
-              onclick="document.getElementById('dialog-rounded').showModal();">
-              <div class="nes-balloon from-right" style="transform: translateX(-80%) translateY(100%);">
-                <p style="color: black;">Click Me!</p>
-              </div>
-            </div>
-            <dialog class="nes-dialog is-rounded" id="dialog-rounded">
-              <!-- <form method="dialog">-->
-              <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-              <form action="https://formspree.io/f/mjvllzoq" method="post" id="contact-form" target="dummyframe">
-                <p class="title">Contact Me!</p>
-                <div class="nes-field">
-                  <label for="name_field">Your name</label>
-                  <input type="text" id="name_field" name="name" class="nes-input">
-                </div>
-                <div class="nes-field">
-                  <label for="name_field">Your email address</label>
-                  <input type="email" id="name_field" name="email" class="nes-input">
-                </div>
-                <label for="textarea_field">Your message</label>
-                <textarea id="textarea_field" class="nes-textarea" name="message"></textarea>
 
-              </form>
-              <menu class="dialog-menu">
-                <button class="nes-btn is-primary"
-                  onclick="document.getElementById('contact-form').submit();document.getElementById('dialog-rounded').close();">Confirm</button>
-                <button class="nes-btn" onclick="document.getElementById('dialog-rounded').close();">Cancel</button>
-              </menu>
-
-            </dialog>
-          </section>
-          <div class="pipeSet base" style="transform: translateY(-70%) scaleX(-1);z-index: 500;right: 0;"></div>
-          <div class="bottomTile"></div>
-          <div class="bottomTile"></div>
+        <div class="icon" data-window-id="draggableDiv1">
+            <img src="mock-icon1.png" alt="Icon with button">
+            <div class="icon-text">Icon 1</div>
         </div>
-      </div>
+        <div class="icon" data-url="https://ayyshush.itch.io/instable">
+            <img src="mock-icon2.png" alt="Icon 2">
+            <div class="icon-text">Instable.exe</div>
+        </div>
+        <div class="icon" data-url="https://ayyshush.itch.io/escape">
+            <img src="mock-icon2.png" alt="Icon 2">
+            <div class="icon-text">Escape.exe</div>
+        </div>
+        <div class="icon" data-url="https://ayyshush.itch.io/">
+            <img src="mock-icon2.png" alt="Icon 2">
+            <div class="icon-text">Itch.io</div>
+        </div>
+        <div class="icon" data-window-id="cvWindow">
+            <img src="mock-icon3.png" alt="Icon CV">
+            <div class="icon-text">AayushCV.txt</div>
+        </div>
+        <div class="icon" id="OldPortfolio" data-url="indexold.html">
+            <img src="mock-icon1.png" alt="Icon with button">
+            <div class="icon-text">OldPortfolio.exe</div>
+        </div>
+
     </div>
-  </div>
-  <script language="javascript" src="scripts/functionalities.js"></script>
-  <script src="scripts/mariocoin.js"></script>
+
+    <div class="taskbar">
+        <div class="start-button" id="startButton">
+            <div class="start-button-icon">
+                <img src="Images/Retro/Microsoft_Logo_Wingdings_Font.png" alt="Start Icon">
+            </div>
+            <span class="start-button-text">Start</span>
+        </div>
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-side-panel">
+                <div class="start-menu-header">
+                    Nostalgia OS
+                </div>
+            </div>
+            <ul class="start-menu-items">
+                <li data-window-id="draggableDiv1"><img src="path_to_your_icon.png" alt="Icon">Item 1</li>
+                <li data-window-id="draggableDiv2"><img src="path_to_your_icon.png" alt="Icon">Item 2</li>
+                <li data-window-id="cvWindow"><img src="path_to_your_icon.png" alt="Icon">AayushCV.txt</li>
+            </ul>
+        </div>
+    
+        <div class="taskbar-notification-area">
+            <div class="mute-button" id="muteButton">
+                <img src="Images/Retro/loudspeaker_muted-1.png" alt="Mute" id="muteIcon" />
+            </div>
+    
+            <div class="clock-calendar-container">
+                <div class="clock" id="clock">12:00 AM</div>
+                <div class="calendar" id="calendar">Monday, January 1</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="cvWindow" class="draggable" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">AayushCV.txt</div>
+            <div class="title-bar-controls">
+                <button class="close-btn">&times;</button>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Aayush Shukla</h1>
+            <p>London, United Kingdom | +44 7438097458 | +91 8982808506 | <a href="mailto:aayushshukla11@gmail.com">aayushshukla11@gmail.com</a> | <a href="https://www.linkedin.com/in/ayyshush/">LinkedIn</a> | <a href="https://ayyshush.itch.io/">itch.io</a> | <a href="https://ayyshush.github.io/">GitHub</a></p>
+            
+            <h3>Enthusiastic and skilled Game Developer with a Master's in Independent Games and Playable Experience Design from Goldsmiths, University of London. Currently serving as a VR Engineer at Gemba, contributing to the evolution of workforce learning in the enterprise metaverse. Proficient in Unity Engine, C#, and VR/AR development, with a solid foundation in clean coding and problem-solving. Dedicated to creating immersive gaming experiences and driving innovation in the gaming industry.</h3>
+            
+            <h3>Skills</h3>
+            <ul>
+                <li>Game Development: Unity Engine, Unity XR, AR development</li>
+                <li>VR Development: Unity, Photon Fusion</li>
+                <li>Web Development: HTML, CSS, JavaScript, PHP, MySQL</li>
+                <li>Creative Content Creation: Adobe Photoshop, Blender, Krita, Substance Painter</li>
+                <li>Version Control: Git, Plastic SCM</li>
+                <li>Problem Solving: Strong analytical and troubleshooting skills</li>
+                <li>Clean Coding: Proficient in Java, C#, C++, Python</li>
+                <li>Communication</li>
+                <li>Object-Oriented Programming (OOP)</li>
+            </ul>
+
+            <h3>Professional Experience</h3>
+            <h4>VR Engineer</h4>
+            <p>Gemba, London, United Kingdom | Apr ‘24 – Present</p>
+            <ul>
+                <li>Leading the development of features for multiplayer VR training using Photon Fusion and Unity Engine.</li>
+                <li>Ensuring clean coding practices and robust interface design for maintainable and scalable applications.</li>
+                <li>Utilizing Photon Fusion to implement seamless networking for multiplayer VR training modules.</li>
+                <li>Mentoring junior developers and assisting other team members with technical issues, including networking, Unity, and C#.</li>
+                <li>Collaborating with engineers and the creative team to implement requested features and mechanics.</li>
+            </ul>
+
+            <h4>Junior VR Engineer</h4>
+            <p>Gemba, London, United Kingdom | Nov ‘22 – Apr ‘24</p>
+            <ul>
+                <li>Developed engaging gamified experiences for multiplayer VR training with Photon Fusion and Unity Engine.</li>
+                <li>Worked closely with senior engineers and the creative team to integrate new technologies and features.</li>
+                <li>Applied clean coding practices to ensure the development of scalable and maintainable applications.</li>
+                <li>Supported the testing and debugging of VR applications, ensuring a smooth user experience.</li>
+                <li>Learned and became proficient in multiplayer networking, eventually assisting other developers with technical challenges.</li>
+                <li>Tackled complex tasks and provided innovative solutions to challenging problems.</li>
+            </ul>
+
+            <h4>Barista</h4>
+            <p>Company of Cooks, London, United Kingdom | Jul ‘22 – Nov ‘22</p>
+            <ul>
+                <li>Improved communication and problem-solving skills in a fast-paced, customer-facing environment.</li>
+                <li>Managed inventory efficiently, ensuring stock levels met customer demands.</li>
+                <li>Delivered excellent customer service, fostering a positive customer experience.</li>
+                <li>Collaborated with team members to streamline operations and enhance service quality.</li>
+            </ul>
+
+            <h3>Education</h3>
+            <h4>Master of Arts - MA, Independent Games and Playable Experience Design</h4>
+            <p>Goldsmiths, University of London, London, United Kingdom | Sep ‘21 – Oct ‘22</p>
+            <p>Achieved Distinction. Developed skills in game development, Unity, C#, 3D modeling, VR, and AR.</p>
+
+            <h4>BCA - Bachelor of Computer Application</h4>
+            <p>Devi Ahilya Vishwavidyalaya, Indore, India | Sep ‘17 – Oct ‘20</p>
+            <p>CGPA: 8.35. Focused on OOP, full-stack web development, and version control.</p>
+        </div>
+    </div>
+    <div id="draggableDiv1" class="draggable" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Window 1</div>
+            <div class="title-bar-controls">
+                <button class="close-btn">&times;</button>
+            </div>
+        </div>
+        <div class="content">
+            <!-- Window content goes here -->asdasd
+        </div>
+    </div>
+    <div id="draggableDiv2" class="draggable" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Window 2</div>
+            <div class="title-bar-controls">
+                <button class="close-btn">&times;</button>
+            </div>
+        </div>
+        <div class="content">
+            <!-- Window content goes here -->asdasd
+        </div>
+    </div>
+    <script src="js/retro.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/themes.js"></script>
 </body>
-
 </html>
