@@ -11,10 +11,24 @@ $(document).ready(function () {
     $(this).closest('.draggable').hide();
   });
 
+
   // Open the CV window
   $('.icon').on('dblclick', function () {
     const windowId = $(this).data('window-id');
     $('#' + windowId).show();
+  });
+  var image1 ='Images/Retro/loudspeaker_muted-1.png', image2 = 'Images/Retro/loudspeaker_rays-1.png';
+  $('#muteButton').on('click', function(){
+    var currentSrc = $("#muteIcon").attr("src");  // Get current image source
+        
+        // Switch to the other image
+        if (currentSrc === image1) {
+          $('#ambientSound')[0].muted = true;
+            $("#muteIcon").attr("src", image2);
+        } else {
+          $('#ambientSound')[0].muted = false;
+            $("#muteIcon").attr("src", image1);
+        }
   });
 });
 
