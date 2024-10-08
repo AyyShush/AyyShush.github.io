@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,10 @@
     <link rel="icon" href="Images/Retro/Microsoft_Logo_Wingdings_Font.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="CSS/retro.css">
     <link rel="stylesheet" type="text/css" href="CSS/loader.css">
+    <link rel="stylesheet" type="text/css" href="CSS/messenger.css">
+    <script src="https://kit.fontawesome.com/5ec57f8a93.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="theme-default">
     <audio id="ambientSound" src="Audio/DialUpAmbience.mp3" loop></audio>
     <audio id="startupsound" src="Audio/startup.mp3"></audio>
@@ -38,7 +42,34 @@
                 <li id="format" class="danger">Format C:\></li>
             </ul>
         </div>
-
+        <div class="icon" id="messengerIcon" data-window-id="messengerWindow">
+            <img src="Images/Icons/MSN.png" alt="Internet Explorer Icon">
+            <div class="icon-text">Contact Me!</div>
+        </div>
+        <div class="icon" id="internetExplorerIcon" data-window-id="ieWindow">
+            <img src="Images/Icons/Internet Explorer.png" alt="Internet Explorer Icon">
+            <div class="icon-text">Portfolio Videos</div>
+        </div>
+        <div class="icon" data-url="https://ayyshush.itch.io/">
+            <img src="Images/Icons/itch.png" alt="Icon 2">
+            <div class="icon-text">Itch.io</div>
+        </div>
+        <div class="icon" data-window-id="cvWindow">
+            <img src="Images/Icons/file.png" alt="Icon CV">
+            <div class="icon-text">AayushCV.txt</div>
+        </div>
+        <div class="icon" data-url="https://ayyshush.itch.io/instable">
+            <img src="Images/Icons/Instable Icon.png" alt="Icon 2">
+            <div class="icon-text">Instable.exe</div>
+        </div>
+        <div class="icon" data-url="https://ayyshush.itch.io/escape">
+            <img src="Images/Icons/Escape.png" alt="Icon 2">
+            <div class="icon-text">Escape.exe</div>
+        </div>
+        <div class="icon" id="OldPortfolio" data-url="indexold.html">
+            <img src="Images/Icons/mariojump.png" alt="Icon with button">
+            <div class="icon-text">OldPortfolio.exe</div>
+        </div>
         <div id="themesWindow" class="draggable" style="display: none;">
             <div class="title-bar">
                 <div class="title-bar-text">Themes</div>
@@ -50,43 +81,21 @@
                 <div class="monitor-image"></div>
                 <div>Select a desktop theme:</div>
                 <ul class="theme-list">
-                    <li class="theme-option" data-theme="theme1">Martini Picnic</li>
-                    <li class="theme-option" data-theme="theme2">Palermo Weekends</li>
-                    <li class="theme-option" data-theme="theme3">Poolside FM (RIP)</li>
-                    <li class="theme-option" data-theme="theme4">Poolsuite OS (Default)</li>
-                    <li class="theme-option" data-theme="theme5">Pacific Breeze</li>
-                    <li class="theme-option" data-theme="theme6">Lost in Tripoli</li>
-                    <li class="theme-option" data-theme="theme7">Default OS</li>
+                    <li class="theme-option" data-theme="theme1">Bliss</li>
+                    <li class="theme-option" data-theme="theme3">Radiance</li>
+                    <li class="theme-option" data-theme="theme4">Crescent</li>
+                    <li class="theme-option" data-theme="theme5">Follow</li>
+                    <li class="theme-option" data-theme="theme6">Tulips</li>
+                    <li class="theme-option" data-theme="theme7">Moon Flower</li>
+                    <li class="theme-option" data-theme="theme2">Bliss Retro</li>
                 </ul>
                 <button id="applyTheme">Apply</button>
             </div>
         </div>
-
-        <div class="icon" data-window-id="draggableDiv1">
-            <img src="Images/Icons/Folder.png" alt="Icon with button">
-            <div class="icon-text">Icon 1</div>
+        <div class="icon" data-window-id="fileExplorerWindow">
+            <img src="Images/Icons/Folder.png" alt="Folder Icon">
+            <div class="icon-text">Browser Games</div>
         </div>
-        <div class="icon" data-url="https://ayyshush.itch.io/instable">
-            <img src="Images/Icons/Instable Icon.png" alt="Icon 2">
-            <div class="icon-text">Instable.exe</div>
-        </div>
-        <div class="icon" data-url="https://ayyshush.itch.io/escape">
-            <img src="Images/Icons/Escape.png" alt="Icon 2">
-            <div class="icon-text">Escape.exe</div>
-        </div>
-        <div class="icon" data-url="https://ayyshush.itch.io/">
-            <img src="Images/Icons/itch.png" alt="Icon 2">
-            <div class="icon-text">Itch.io</div>
-        </div>
-        <div class="icon" data-window-id="cvWindow">
-            <img src="Images/Icons/file.png" alt="Icon CV">
-            <div class="icon-text">AayushCV.txt</div>
-        </div>
-        <div class="icon" id="OldPortfolio" data-url="indexold.html">
-            <img src="Images/Icons/mariojump.png" alt="Icon with button">
-            <div class="icon-text">OldPortfolio.exe</div>
-        </div>
-
     </div>
 
     <div class="taskbar">
@@ -103,17 +112,38 @@
                 </div>
             </div>
             <ul class="start-menu-items">
-                <li data-window-id="draggableDiv1"><img src="Images/Icons/file.png" alt="Icon">Item 1</li>
-                <li data-window-id="draggableDiv2"><img src="Images/Icons/file.png" alt="Icon">Item 2</li>
-                <li data-window-id="cvWindow"><img src="Images/Icons/file.png" alt="Icon">AayushCV.txt</li>
+                <li data-window-id="cvWindow">
+                    <img src="Images/Icons/file.png" alt="CV Icon"> AayushCV.txt
+                </li>
+                <li data-window-id="messengerWindow" id="startMenuMessenger">
+                    <img src="Images/Icons/MSN.png" alt="Messenger Icon" > Contact Me
+                </li>
+                <li data-window-id="ieWindow" id="startMenuIE">
+                    <img src="Images/Icons/Internet Explorer.png" alt="Internet Explorer Icon" > Portfolio Videos
+                </li>
+                <li data-url="https://ayyshush.itch.io/">
+                    <img src="Images/Icons/itch.png" alt="Itch.io Icon"> Itch.io
+                </li>
+                <li data-url="https://ayyshush.itch.io/instable">
+                    <img src="Images/Icons/Instable Icon.png" alt="Instable Icon"> Instable.exe
+                </li>
+                <li data-url="https://ayyshush.itch.io/escape">
+                    <img src="Images/Icons/Escape.png" alt="Escape Icon"> Escape.exe
+                </li>
+                <li data-url="indexold.html">
+                    <img src="Images/Icons/mariojump.png" alt="Old Portfolio Icon"> OldPortfolio.exe
+                </li>
+                <li data-window-id="fileExplorerWindow">
+                    <img src="Images/Icons/Folder.png" alt="Folder Icon"> Browser Games
+                </li>
             </ul>
         </div>
-    
+
         <div class="taskbar-notification-area">
             <div class="mute-button" id="muteButton">
                 <img src="Images/Retro/loudspeaker_muted-1.png" alt="Mute" id="muteIcon" />
             </div>
-    
+
             <div class="clock-calendar-container">
                 <div class="clock" id="clock">12:00 AM</div>
                 <div class="calendar" id="calendar">Monday, January 1</div>
@@ -131,10 +161,17 @@
         </div>
         <div class="content">
             <h1>Aayush Shukla</h1>
-            <p>London, United Kingdom | +44 7438097458 | +91 8982808506 | <a href="mailto:aayushshukla11@gmail.com">aayushshukla11@gmail.com</a> | <a href="https://www.linkedin.com/in/ayyshush/">LinkedIn</a> | <a href="https://ayyshush.itch.io/">itch.io</a> | <a href="https://ayyshush.github.io/">GitHub</a></p>
-            
-            <h3>Enthusiastic and skilled Game Developer with a Master's in Independent Games and Playable Experience Design from Goldsmiths, University of London. Currently serving as a VR Engineer at Gemba, contributing to the evolution of workforce learning in the enterprise metaverse. Proficient in Unity Engine, C#, and VR/AR development, with a solid foundation in clean coding and problem-solving. Dedicated to creating immersive gaming experiences and driving innovation in the gaming industry.</h3>
-            
+            <p>London, United Kingdom | +44 7438097458 | +91 8982808506 | <a
+                    href="mailto:aayushshukla11@gmail.com">aayushshukla11@gmail.com</a> | <a
+                    href="https://www.linkedin.com/in/ayyshush/">LinkedIn</a> | <a
+                    href="https://ayyshush.itch.io/">itch.io</a> | <a href="https://ayyshush.github.io/">GitHub</a></p>
+
+            <h3>Enthusiastic and skilled Game Developer with a Master's in Independent Games and Playable Experience
+                Design from Goldsmiths, University of London. Currently serving as a VR Engineer at Gemba, contributing
+                to the evolution of workforce learning in the enterprise metaverse. Proficient in Unity Engine, C#, and
+                VR/AR development, with a solid foundation in clean coding and problem-solving. Dedicated to creating
+                immersive gaming experiences and driving innovation in the gaming industry.</h3>
+
             <h3>Skills</h3>
             <ul>
                 <li>Game Development: Unity Engine, Unity XR, AR development</li>
@@ -152,21 +189,29 @@
             <h4>VR Engineer</h4>
             <p>Gemba, London, United Kingdom | Apr ‘24 – Present</p>
             <ul>
-                <li>Leading the development of features for multiplayer VR training using Photon Fusion and Unity Engine.</li>
-                <li>Ensuring clean coding practices and robust interface design for maintainable and scalable applications.</li>
+                <li>Leading the development of features for multiplayer VR training using Photon Fusion and Unity
+                    Engine.</li>
+                <li>Ensuring clean coding practices and robust interface design for maintainable and scalable
+                    applications.</li>
                 <li>Utilizing Photon Fusion to implement seamless networking for multiplayer VR training modules.</li>
-                <li>Mentoring junior developers and assisting other team members with technical issues, including networking, Unity, and C#.</li>
-                <li>Collaborating with engineers and the creative team to implement requested features and mechanics.</li>
+                <li>Mentoring junior developers and assisting other team members with technical issues, including
+                    networking, Unity, and C#.</li>
+                <li>Collaborating with engineers and the creative team to implement requested features and mechanics.
+                </li>
             </ul>
 
             <h4>Junior VR Engineer</h4>
             <p>Gemba, London, United Kingdom | Nov ‘22 – Apr ‘24</p>
             <ul>
-                <li>Developed engaging gamified experiences for multiplayer VR training with Photon Fusion and Unity Engine.</li>
-                <li>Worked closely with senior engineers and the creative team to integrate new technologies and features.</li>
-                <li>Applied clean coding practices to ensure the development of scalable and maintainable applications.</li>
+                <li>Developed engaging gamified experiences for multiplayer VR training with Photon Fusion and Unity
+                    Engine.</li>
+                <li>Worked closely with senior engineers and the creative team to integrate new technologies and
+                    features.</li>
+                <li>Applied clean coding practices to ensure the development of scalable and maintainable applications.
+                </li>
                 <li>Supported the testing and debugging of VR applications, ensuring a smooth user experience.</li>
-                <li>Learned and became proficient in multiplayer networking, eventually assisting other developers with technical challenges.</li>
+                <li>Learned and became proficient in multiplayer networking, eventually assisting other developers with
+                    technical challenges.</li>
                 <li>Tackled complex tasks and provided innovative solutions to challenging problems.</li>
             </ul>
 
@@ -189,30 +234,220 @@
             <p>CGPA: 8.35. Focused on OOP, full-stack web development, and version control.</p>
         </div>
     </div>
-    <div id="draggableDiv1" class="draggable" style="display: none;">
+    <div id="fileExplorerWindow" class="draggable" style="display: none;">
         <div class="title-bar">
-            <div class="title-bar-text">Window 1</div>
+            <div class="title-bar-text">File Explorer</div>
             <div class="title-bar-controls">
                 <button class="close-btn">&times;</button>
             </div>
         </div>
-        <div class="content">
-            <!-- Window content goes here -->asdasd
+        <div class="top-toolbar">
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Favorites</span>
+            <span>Tools</span>
+            <span>Help</span>
         </div>
+
+
+        <!-- Toolbar (Non-functional buttons) -->
+        <div class="explorer-toolbar">
+            <button class="explorer-btn" disabled><i class="fa-solid fa-arrow-left-long"></i><br>Back</button>
+            <button class="explorer-btn" disabled><i class="fa-solid fa-arrow-right-long"></i><br>Forward</button>
+            <button class="explorer-btn" disabled><i class="fa-solid fa-search"></i><br>Search</button>
+            <button class="explorer-btn" disabled><i class="fa-regular fa-folder"></i><br>Folders</button>
+        </div>
+        <!-- Fake Address Bar -->
+        <div class="explorer-address-bar">
+            <div class="explorer-address-bar-container">
+                <label for="address-bar">Address:</label>
+                <input id="address-bar" type="text" value="C:\Documents and Settings\Users\Frosty\Desktop\BrowserGames"
+                    disabled />
+                <button class="go-btn" disabled>Go</button>
+            </div>
+        </div>
+
+        <!-- Sidebar and Content -->
+        <div class="file-explorer-container">
+            <!-- Sidebar -->
+            <div class="explorer-sidebar">
+                <div class="sidebar-section">
+                    <h4 class="sidebar-section-title">File and Folder Tasks</h4>
+                    <ul class="sidebar-section-list">
+                        <li class="sidebar-item">Make a new folder</li>
+                        <li class="sidebar-item">Publish this folder to the web</li>
+                        <li class="sidebar-item">Share this folder</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4 class="sidebar-section-title">Other Places</h4>
+                    <ul class="sidebar-section-list">
+                        <li class="sidebar-item">Documents and Settings</li>
+                        <li class="sidebar-item">My Documents</li>
+                        <li class="sidebar-item">My Computer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- File content area -->
+            <div class="explorer-content">
+                <div class="folder-view">
+                    <div class="icon">
+                        <img src="Images/Icons/file.png" alt="Folder Icon">
+                        <div class="icon-text">Coming</div>
+                    </div>
+                    <div class="icon">
+                        <img src="Images/Icons/file.png" alt="Folder Icon">
+                        <div class="icon-text">Soon</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div id="draggableDiv2" class="draggable" style="display: none;">
+    <div id="ie-window" class="ie-draggable" style="display: none;">
+        <!-- Title Bar -->
         <div class="title-bar">
-            <div class="title-bar-text">Window 2</div>
+            <div class="title-bar-text">Internet Explorer</div>
             <div class="title-bar-controls">
                 <button class="close-btn">&times;</button>
             </div>
         </div>
-        <div class="content">
-            <!-- Window content goes here -->asdasd
+        <!-- Top Toolbar -->
+        <div class="ie-top-toolbar">
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Favorites</span>
+            <span>Tools</span>
+            <span>Help</span>
+        </div>
+        <!-- Toolbar with buttons -->
+        <div class="ie-toolbar">
+            <button class="ie-btn" onclick="
+                document.getElementById('ie-iframe').contentWindow.history.back();
+                "><i class="fa-solid fa-arrow-left-long"></i><br>Back</button>
+            <button class="ie-btn" onclick="
+            document.getElementById('ie-iframe').contentWindow.history.forward();
+            "><i class="fa-solid fa-arrow-right-long"></i><br>Forward</button>
+            <button class="ie-btn" onclick="
+            var currentLocation =  document.getElementById('ie-iframe').contentWindow.location;
+            document.getElementById('ie-iframe').contentWindow.location.reload();
+            "><i class="fa-solid fa-arrows-rotate"></i><br>Refresh</button>
+            <button class="ie-btn"><i class="fa-regular fa-star"></i><br>Favorites</button>
+        </div>
+
+        <!-- Address bar -->
+        <div class="ie-address-bar">
+            <label for="ie-address-input">Address : </label>
+            <input id="ie-address-input" type="text" value="http://www.youtoob.com" disabled />
+            <button class="ie-go-btn">Go</button>
+        </div>
+
+        <!-- Content -->
+        <div class="ie-browser-content">
+            <iframe id="ie-iframe" src="youtoobhome.html" frameborder="0" width="100%" height="100%"></iframe>
+        </div>
+        <div class="ie-browser-footer-bar">
+            <span>Document Ready</span>
+
         </div>
     </div>
+    <div id="messenger-window" class="draggable" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">MSN Messenger Service </div>
+            <div class="title-bar-controls">
+                <button class="close-btn">&times;</button>
+            </div>
+        </div>
+        <div class="top-toolbar">
+            <span>Messenger</span>
+            <span>File</span>
+            <span>View</span>
+            <span>Actions</span>
+            <span>Tools</span>
+            <span>Help</span>
+        </div>
+
+
+        <!-- Sidebar and Content -->
+        <div class="file-explorer-container">
+            <!-- Sidebar -->
+            <!-- Toolbar (Non-functional buttons) -->
+            <div class="contact-sidebar">
+                <div class="contact-top">
+                    <button><i class="fa-solid fa-user-plus"></i><br> Add</button>
+                    <button><i class="fa-regular fa-paper-plane"></i><br>Send</button>
+                    <button><i class="fa-solid fa-paintbrush"></i><br></i>Status</button>
+                </div>
+
+                <div class="contact-list">
+                    <h4>Contacts Currently Online</h4>
+                    <ul>
+                        <li><img src="online_icon.png" alt="Online" />Frostymart</li>
+                        <li><img src="offline_icon.png" alt="Offline" />LousyCake</li>
+                    </ul>
+
+                    <h4>Contacts Not Online</h4>
+                    <ul>
+                        <li><img src="offline_icon.png" alt="Offline" />thestuntmaster</li>
+                        <li><img src="offline_icon.png" alt="Offline" />ExpertOfTheGame</li>
+                        <li><img src="offline_icon.png" alt="Offline" />Yentley</li>
+                        <li><img src="offline_icon.png" alt="Offline" />NickPJ</li>
+                        <li><img src="offline_icon.png" alt="Offline" />Markuss</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- File content area -->
+            <div class="messenger-container">
+                <div class="messenger-toolbar">
+                    <button><i class="fa-solid fa-phone"></i><br>Talk</button>
+                    <button><i class="fa-regular fa-address-book"></i><br> Invite</button>
+                    <button><i class="fa-solid fa-ban"></i><br>Block</button>
+                </div>
+
+                <div class="message-header">
+                    To: <span>aayushshukla11@gmail.com</span>
+                </div>
+
+                <div class="message-display">
+                    <div class="chat-message">
+                        ~~Frostymart#~~ says: <br>
+                        I'm using my laptop now <br>
+                        nostalgia OS works really well!
+                    </div>
+                    <div class="chat-message">
+                        ~~Frostymart#~~ says: <br>
+                        brb gotta go grocery shopping with mum<br>
+                    </div>
+                </div>
+
+                <form action="https://formspree.io/f/mjvllzoq" method="POST" target="dummyframe">
+                    <div class="form-area">
+                        <label>Your message:</label>
+                        <textarea name="message" placeholder="Type your message here..."></textarea>
+                        <label>From:</label>
+                        <input type="email" name="email" placeholder="Enter your email">
+                        <button type="submit">Send</button>
+                    </div>
+                </form>
+
+                <div class="message-footer">
+                    Last message received on 04/01/2004 at 13:43
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <script src="js/retro.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/themes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+    </script>
 </body>
 </html>

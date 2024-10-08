@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtoob - Video Page</title>
+    <link rel="stylesheet" href="CSS/youtoob.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <span class="you-text">YOU</span>
+                <span class="toob-text">
+                  TOOB
+                  <sup class="tm-text">TM</sup>
+                </span>
+                <span class="broadcast-text">Broadcast Yourself</span>
+              </div>
+              
+            <nav class="navigation">
+                <a href="youtoobhome.html">Home</a>
+                <a href="#">Videos</a>
+                <a href="#">Channels</a>
+                <a href="#">Categories</a>
+                <a href="#">Upload</a>
+            </nav>
+        </header>
+
+        <!-- Main Video Section -->
+        <main class="video-page">
+            <!-- Video Player and Information -->
+            <section class="video-player">
+                <iframe id="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                <h2 id="video-title">Video Title</h2>
+                <p id="video-info">Uploaded by Frostymart | Views: 5000 | Added on: 01-01-2024</p>
+
+                <!-- Comments Section -->
+                <div class="comments" id="comments">
+                    <h3>Comments:</h3>
+                    <!-- Random comments will load here -->
+                </div>
+            </section>
+
+            <!-- Recommended Videos Section -->
+            <aside id="recommended-list">
+                <h3>Recommended Videos</h3>
+                <!-- Recommended videos will be dynamically loaded here by JS -->
+            </aside>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p>Powered by Youtoob &copy; 2024 | <a href="#">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/youtubeVideo.js"></script>
+</body>
+
+</html>

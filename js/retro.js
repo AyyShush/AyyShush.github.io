@@ -10,6 +10,34 @@ $(document).ready(function () {
     // Find the parent draggable div and hide it
     $(this).closest('.draggable').hide();
   });
+  // Make the draggable windows draggable
+  $('.ie-draggable').draggable({
+    handle: '.title-bar',
+    containment: 'body'
+  });
+
+  // Close button click event handler
+  $('.close-btn').on('click', function () {
+    $(this).closest('#ie-window').hide();
+  });
+
+  // Open the Internet Explorer Window on double-click
+  $('#internetExplorerIcon').on('dblclick', function () {
+    $('#ie-window').show();
+  });
+  // Open the Internet Explorer Window on double-click
+  $('#messengerIcon').on('dblclick', function () {
+    $('#messenger-window').show();  
+  });
+  // Open the Internet Explorer Window on double-click
+  $('#startMenuIE').on('click', function () {
+    $('#ie-window').show();
+  });
+  // Open the Internet Explorer Window on double-click
+  $('#startMenuMessenger').on('click', function () {
+    $('#messenger-window').show();  
+  });
+
 
 
   // Open the CV window
@@ -17,21 +45,22 @@ $(document).ready(function () {
     const windowId = $(this).data('window-id');
     $('#' + windowId).show();
   });
-  var image1 ='Images/Retro/loudspeaker_muted-1.png', image2 = 'Images/Retro/loudspeaker_rays-1.png';
-  $('#muteButton').on('click', function(){
+  var image1 = 'Images/Retro/loudspeaker_muted-1.png', image2 = 'Images/Retro/loudspeaker_rays-1.png';
+  $('#muteButton').on('click', function () {
     var currentSrc = $("#muteIcon").attr("src");  // Get current image source
-        
-        // Switch to the other image
-        if (currentSrc === image1) {
-          $('#ambientSound')[0].muted = true;
-            $("#muteIcon").attr("src", image2);
-        } else {
-          $('#ambientSound')[0].muted = false;
-            $("#muteIcon").attr("src", image1);
-        }
-  });
-});
 
+    // Switch to the other image
+    if (currentSrc === image1) {
+      $('#ambientSound')[0].muted = true;
+      $("#muteIcon").attr("src", image2);
+    } else {
+      $('#ambientSound')[0].muted = false;
+      $("#muteIcon").attr("src", image1);
+    }
+  });
+
+
+});
 
 function updateClock() {
   const now = new Date();
@@ -55,24 +84,10 @@ function updateClock() {
   const dateString = dayOfWeek + ', ' + month + ' ' + dayOfMonth;
   document.getElementById('calendar').innerHTML = dateString;
 }
-
 // Update the clock every second
 setInterval(updateClock, 1000);
-
 // Initial update
 updateClock();
-
-function openPrograms() {
-  alert('Opening Programs...');
-}
-
-function openDocuments() {
-  alert('Opening Documents...');
-}
-
-function openSettings() {
-  alert('Opening Settings...');
-}
 
 let startMenuVisible = false;
 
@@ -182,3 +197,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+

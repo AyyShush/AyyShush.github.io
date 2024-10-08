@@ -11,7 +11,7 @@
     --taskbar-bg: #ffb3e6;
     --window-bg: #ffffff;
     --title-bar-bg: #ffb3e6;
-    --body-bg: url('../Images/Retro/another\ one.jpg');
+    --body-bg: url('../Images/MandelaImages/Moon\ Flower.jpg');
     --panel-bg: #f3f3f3;
     --start-menu-bg: #f3f3f3;
     --start-menu-header-bg: #ffb3e6;
@@ -26,7 +26,7 @@
     --taskbar-bg: #66ff66;
     --window-bg: #99ff99;
     --title-bar-bg: #66ff66;
-    --body-bg: url('../Images/Retro/Oasis.jpg');
+    --body-bg: url('../Images/MandelaImages/Bliss.jpg');
     --panel-bg: #d9ffcc;
     --start-menu-bg: #d9ffcc;
     --start-menu-header-bg: #66ff66;
@@ -56,7 +56,7 @@
     --taskbar-bg: #ff99cc;
     --window-bg: #ffccff;
     --title-bar-bg: #ff99cc;
-    --body-bg: url('../Images//Retro//another\ one.jpg');
+    --body-bg: url('../Images/MandelaImages/Radiance.jpg');
     --panel-bg: #ffd9e6;
     --start-menu-bg: #ffd9e6;
     --start-menu-header-bg: #ff99cc;
@@ -86,7 +86,7 @@
     --taskbar-bg: #99ccff;
     --window-bg: #cceeff;
     --title-bar-bg: #99ccff;
-    --body-bg: url('../Images/Retro/Oasis.jpg');
+    --body-bg: url('../Images/MandelaImages/Follow.jpg');
     --panel-bg: #d9ecff;
     --start-menu-bg: #d9ecff;
     --start-menu-header-bg: #99ccff;
@@ -101,7 +101,7 @@
     --taskbar-bg: #ffcc99;
     --window-bg: #ffebcc;
     --title-bar-bg: #ffcc99;
-    --body-bg: url('../Images/Retro/another\ one.jpg');
+    --body-bg: url('../Images/MandelaImages/Tulips.jpg');
     --panel-bg: #ffe6cc;
     --start-menu-bg: #ffe6cc;
     --start-menu-header-bg: #ffcc99;
@@ -117,7 +117,9 @@ body {
     overflow: hidden;
     font-family: 'Pixelated MS Sans Serif';
     background-image: var(--body-bg);
-    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -343,7 +345,8 @@ button {
     bottom: calc(100% + 1px);
     /* Position the start menu above the taskbar */
     left: 0;
-    height: 1000%;
+    height: 50vh;
+    width: 15vmax;
     background-color: var(--start-menu-bg);
     border: 1px solid black;
     z-index: 1;
@@ -543,9 +546,315 @@ button {
     position: relative;
     padding: 0 5px;
 }
-
 .mute-button img {
     width: 100%;
     height: auto;
     display: block;
 }
+
+/* Toolbar Button Adjustments */
+.top-toolbar{
+    background-color: #d4d0c8; /* Light gray for the toolbar */
+    padding: 3px;
+    border-bottom: 2px solid #808080; /* Divider line below the toolbar */
+    font-family: 'Tahoma', sans-serif;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 10px;
+}
+.explorer-toolbar {
+    background-color: #d4d0c8;
+    padding: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.explorer-btn {
+    padding: 2px 5px;
+    border: 1px solid #808080;
+    background-color: #d4d0c8;
+    font-size: 12px;
+    color: #000;
+}
+.explorer-address-bar{
+    background-color: #d4d0c8;
+    padding: 4px;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+}
+#address-bar{
+    flex-grow: 2;
+    height: 22px;
+    padding: 3px;
+    border: 1px solid #808080;
+    background-color: #ffffff;
+    margin-left: 5px;
+    min-width: 60%;
+}
+.go-btn{
+    padding: 2px 10px;
+    border: 1px solid #808080;
+    background-color: #d4d0c8;
+    font-size: 12px;
+    color: #000;
+    margin-left: 10px;
+}
+
+/* Sidebar Section Titles */
+/* Address Bar and Toolbar Adjustments */
+
+/* File Explorer Layout */
+.file-explorer-container {
+    display: grid;
+    gap: 0px 0px; 
+    grid-template-columns: 0.5fr 1.5fr; 
+    gap: 0px 0px; 
+    min-height: 60vmin; /* Adjust the height to resemble XP window dimensions */
+    min-width: 40vmax;  /* Adjust the width to resemble XP window dimensions */
+    border: 1px solid #ccc;
+}
+
+.explorer-address-bar{
+    width: 100%;
+    padding: 0 10px; /* Ensure toolbar and address bar have padding on the sides */
+}
+.explorer-address-bar-container{
+    width: 100%;
+}
+.explorer-sidebar{
+    background-color: #d4d0c8;
+    height: 100%;
+    border-right: 2px solid #808080;
+    border-top: 2px solid #808080;
+    justify-content: center;
+}
+.sidebar-section {
+    background-color: #c0cfd6;
+    margin: 20px 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar-section-title {
+    margin: 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 1px solid #bbb;
+    background-color: #ddeef7;
+}
+
+.sidebar-section-list {
+    padding-top: 5px;
+    list-style-type: none;
+    padding-left: 10px; /* Added padding for list items */
+    margin: 0;
+}
+
+.sidebar-item {
+    margin: 5px 8px;
+    padding: 10px 0; /* Adjust padding to make the list items more compact */
+    font-size: 12px;
+    color: #424242;
+    text-decoration: underline;
+    border-bottom: 2px solid #696969;
+    cursor: default;
+}
+
+.sidebar-section-title {
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 5px;
+}
+
+.sidebar-section-list {
+    list-style-type: none;
+    padding-left: 10px;
+    margin: 0;
+}
+
+
+/* Content Area */
+.explorer-content {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.folder-view .icon {
+    width: 64px;
+    text-align: center;
+}
+
+.folder-view .icon img {
+    width: 48px;
+    height: 48px;
+}
+
+.folder-view .icon-text {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Title Bar */
+.title-bar {
+    background-color: var(--title-bar-bg);
+    color: black;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar-text {
+    font-weight: bold;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.close-btn {
+    background-color: #ff5f5f;
+    border: none;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+/* Internet Explorer Window Styles */
+#ie-window {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    min-height: 70vmin; /* Adjust the height to resemble XP window dimensions */
+    min-width: 40vmax;  /* Adjust the width to resemble XP window dimensions */
+    width: auto;
+    /* Allow the width to adjust based on content */
+    height: auto;
+    /* Allow the height to adjust based on content */
+    resize: both;
+    background-color: var(--window-bg);
+    position: absolute;
+    box-shadow: 11px 11px 3px -3px rgba(0, 0, 0, 0.49);
+    border: 1px solid #000000;
+    z-index: 10;
+    overflow: hidden;
+    /* Hide overflow to keep a clean look */
+}
+
+/* Top Toolbar */
+.ie-top-toolbar {
+    background-color: #d4d0c8; /* Light gray for the toolbar */
+    padding: 3px;
+    border-bottom: 2px solid #808080; /* Divider line below the toolbar */
+    font-family: 'Tahoma', sans-serif;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+/* Title Bar */
+.ie-title-bar {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #404040;
+    height: 25px;
+}
+
+.ie-title-bar-text {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Toolbar and Buttons */
+.ie-toolbar {
+    background-color: #d4d0c8;
+    padding: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ie-toolbar button {
+    padding: 2px 5px;
+    border: 1px solid #808080;
+    background-color: #d4d0c8;
+    font-size: 12px;
+    color: #000;
+
+}
+
+/* Address Bar */
+.ie-address-bar {
+    background-color: #d4d0c8;
+    padding: 4px;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+}
+
+#ie-address-input {
+    flex-grow: 1;
+    height: 22px;
+    padding: 3px;
+    border: 1px solid #808080;
+    background-color: #ffffff;
+    max-width: 40%;
+    margin-left: 5px;
+}
+
+.ie-go-btn {
+    padding: 2px 10px;
+    border: 1px solid #808080;
+    background-color: #d4d0c8;
+    font-size: 12px;
+    color: #000;
+    margin-left: 10px;
+}
+
+/* Browser Content */
+.ie-browser-content {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #808080;
+    height: 82%;
+    width: 97%;
+    position: absolute;
+}
+.ie-browser-footer-bar {
+    padding: 5px 5px;
+    border: 1px solid #808080;
+    background-color: #d4d0c8;
+    font-size: 12px;
+    color: #000;
+    cursor: not-allowed;
+    bottom: 0px;
+    min-width: 100%;
+    position:absolute;
+}
+
+
