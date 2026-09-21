@@ -12,18 +12,18 @@
     <link rel="stylesheet" type="text/css" href="CSS/retro.css">
     <link rel="stylesheet" type="text/css" href="CSS/loader.css">
     <link rel="stylesheet" type="text/css" href="CSS/messenger.css">
+    <link rel="stylesheet" type="text/css" href="CSS/desktop-overhaul.css">
     <script src="https://kit.fontawesome.com/5ec57f8a93.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="theme-default">
-    f
     <audio id="ambientSound" src="Audio/DialUpAmbience.mp3" loop></audio>
     <audio id="startupsound" src="Audio/startup.mp3"></audio>
 
     <div class="loader" id="loaderScreen">
         <div class="foreground">
             <h1> * * * Nostalgia OS * * * </h1>
-            <h5 class="skip">Press Spacebar to skip</h5>
+            <h5 class="skip">Press Spacebar or tap here to skip</h5>
             <div class="ct">
                 <p>
                     BIOS v1.0.0<br>
@@ -43,21 +43,17 @@
                 <li id="format" class="danger">Format C:\></li>
             </ul>
         </div>
-        <div class="icon" id="messengerIcon" data-window-id="messengerWindow">
+        <div class="icon" id="messengerIcon" data-window-id="messenger-window">
             <img src="Images/Icons/MSN.png" alt="Internet Explorer Icon">
             <div class="icon-text">Contact Me!</div>
         </div>
-        <div class="icon" id="internetExplorerIcon" data-window-id="ieWindow">
+        <div class="icon" id="internetExplorerIcon" data-window-id="ie-window">
             <img src="Images/Icons/Internet Explorer.png" alt="Internet Explorer Icon">
             <div class="icon-text">Portfolio Videos</div>
         </div>
         <div class="icon" data-url="https://ayyshush.itch.io/">
             <img src="Images/Icons/itch.png" alt="Icon 2">
             <div class="icon-text">Itch.io</div>
-        </div>
-        <div class="icon" data-window-id="cvWindow">
-            <img src="Images/Icons/file.png" alt="Icon CV">
-            <div class="icon-text">AayushCV.txt</div>
         </div>
         <div class="icon" data-url="https://ayyshush.itch.io/instable">
             <img src="Images/Icons/Instable Icon.png" alt="Icon 2">
@@ -113,13 +109,10 @@
                 </div>
             </div>
             <ul class="start-menu-items">
-                <li data-window-id="cvWindow">
-                    <img src="Images/Icons/file.png" alt="CV Icon"> AayushCV.txt
-                </li>
-                <li data-window-id="messengerWindow" id="startMenuMessenger">
+                <li data-window-id="messenger-window" id="startMenuMessenger">
                     <img src="Images/Icons/MSN.png" alt="Messenger Icon" > Contact Me
                 </li>
-                <li data-window-id="ieWindow" id="startMenuIE">
+                <li data-window-id="ie-window" id="startMenuIE">
                     <img src="Images/Icons/Internet Explorer.png" alt="Internet Explorer Icon" > Portfolio Videos
                 </li>
                 <li data-url="https://ayyshush.itch.io/">
@@ -153,17 +146,6 @@
 
     </div>
 
-    <div id="cvWindow" class="draggable" style="display: none;">
-        <div class="title-bar">
-            <div class="title-bar-text">AayushCV.txt</div>
-            <div class="title-bar-controls">
-                <button class="close-btn">&times;</button>
-            </div>
-        </div>
-        <div class="content">
-          coming soon!
-        </div>
-    </div>
     <div id="fileExplorerWindow" class="draggable" style="display: none;">
         <div class="title-bar">
             <div class="title-bar-text">File Explorer</div>
@@ -278,7 +260,7 @@
 
         <!-- Content -->
         <div class="ie-browser-content">
-            <iframe id="ie-iframe" src="youtoobhome.html" frameborder="0" width="100%" height="100%"></iframe>
+            <iframe id="ie-iframe" src="youtoobhome.html" title="Portfolio videos"></iframe>
         </div>
         <div class="ie-browser-footer-bar">
             <span>Document Ready</span>
@@ -310,7 +292,7 @@
                 <div class="contact-top">
                     <button><i class="fa-solid fa-user-plus"></i><br> Add</button>
                     <button><i class="fa-regular fa-paper-plane"></i><br>Send</button>
-                    <button><i class="fa-solid fa-paintbrush"></i><br></i>Status</button>
+                    <button><i class="fa-solid fa-paintbrush"></i><br>Status</button>
                 </div>
 
                 <div class="contact-list">
@@ -341,7 +323,7 @@
                 </div>
 
                 <div class="message-header">
-                    To: <span>aayushshukla11@gmail.com</span>
+                    To: <span>Aayush</span>
                 </div>
 
                 <div class="message-display">
