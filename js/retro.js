@@ -1,201 +1,538 @@
-$(document).ready(function () {
-  // Make draggable windows draggable
-  $('.draggable').draggable({
-    handle: '.title-bar',
-    containment: 'body'
-  });
+(() => {
+  const MOBILE_BREAKPOINT = 700;
+  const TASKBAR_GAP = 8;
+  let zIndex = 100;
+  let activeWindowId = null;
 
-  // Close button click event handler
-  $('.title-bar-controls button').on('click', function () {
-    // Find the parent draggable div and hide it
-    $(this).closest('.draggable').hide();
-  });
-  // Make the draggable windows draggable
-  $('.ie-draggable').draggable({
-    handle: '.title-bar',
-    containment: 'body'
-  });
+  const states = new Map();
 
-  // Close button click event handler
-  $('.close-btn').on('click', function () {
-    $(this).closest('#ie-window').hide();
-  });
+  function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
 
-  // Open the Internet Explorer Window on double-click
-  $('#internetExplorerIcon').on('dblclick', function () {
-    $('#ie-window').show();
-  });
-  // Open the Internet Explorer Window on double-click
-  $('#messengerIcon').on('dblclick', function () {
-    $('#messenger-window').show();  
-  });
-  // Open the Internet Explorer Window on double-click
-  $('#startMenuIE').on('click', function () {
-    $('#ie-window').show();
-  });
-  // Open the Internet Explorer Window on double-click
-  $('#startMenuMessenger').on('click', function () {
-    $('#messenger-window').show();  
-  });
+  function getTaskbarHeight() {
+    const taskbar = document.querySelector('.taskbar');
+    return taskbar ? taskbar.getBoundingClientRect().height : 40;
+  }
 
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), Math.max(min, max));
+  }
 
+  function getWindowTitle(win) {
+    return win.querySelector('.title-bar-text')?.textContent?.trim() || win.id;
+  }
 
-  // Open the CV window
-  $('.icon').on('dblclick', function () {
-    const windowId = $(this).data('window-id');
-    $('#' + windowId).show();
-  });
-  var image1 = 'Images/Retro/loudspeaker_muted-1.png', image2 = 'Images/Retro/loudspeaker_rays-1.png';
-  $('#muteButton').on('click', function () {
-    var currentSrc = $("#muteIcon").attr("src");  // Get current image source
+  function getWindowIcon(windowId) {
+    const source = document.querySelector(`.desktop > .icon[data-window-id="${windowId}"], .start-menu-items [data-window-id="${windowId}"]`);
+    return source?.querySelector('img')?.getAttribute('src') || 'Images/Icons/file.png';
+  }
 
-    // Switch to the other image
-    if (currentSrc === image1) {
-      $('#ambientSound')[0].muted = true;
-      $("#muteIcon").attr("src", image2);
+  function getWindowElements() {
+    return Array.from(document.querySelectorAll('.draggable, .ie-draggable'));
+  }
+
+  function ensureState(win) {
+    if (!states.has(win.id)) {
+      states.set(win.id, {
+        open: false,
+        minimized: false,
+        maximized: false,
+        taskbarButton: null
+      });
+    }
+    return states.get(win.id);
+  }
+
+  function setViewportMode() {
+    document.body.classList.toggle('mobile-shell', isMobile());
+
+    if (!isMobile()) {
+      states.forEach((state, id) => {
+        const win = document.getElementById(id);
+        if (win && state.open && !state.minimized) {
+          win.style.display = 'block';
+        }
+      });
+      clampAllWindows();
     } else {
-      $('#ambientSound')[0].muted = false;
-      $("#muteIcon").attr("src", image1);
+      syncMobileVisibility();
     }
-  });
-
-
-});
-
-function updateClock() {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-
-  const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
-  const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-
-  const timeString = formattedHours + ':' + formattedMinutes + ' ' + ampm;
-  document.getElementById('clock').innerHTML = timeString;
-
-  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  const dayOfWeek = daysOfWeek[now.getDay()];
-  const month = months[now.getMonth()];
-  const dayOfMonth = now.getDate();
-
-  const dateString = dayOfWeek + ', ' + month + ' ' + dayOfMonth;
-  document.getElementById('calendar').innerHTML = dateString;
-}
-// Update the clock every second
-setInterval(updateClock, 1000);
-// Initial update
-updateClock();
-
-let startMenuVisible = false;
-
-function toggleStartMenu() {
-  const startMenu = document.getElementById('startMenu');
-  startMenuVisible = !startMenuVisible;
-  startMenu.style.display = startMenuVisible ? 'block' : 'none';
-}
-
-// Close the start menu if clicked outside of it
-document.addEventListener('mousedown', function (event) {
-  const startMenu = document.getElementById('startMenu');
-
-  if (startMenuVisible && event.target !== startMenu && !startMenu.contains(event.target)) {
-    startMenu.style.display = 'none';
-    startMenuVisible = false;
-  }
-});
-
-// Selecting all icon elements
-const icons = document.querySelectorAll('.icon');
-
-// Variable to store the currently selected icon
-let selectedIcon = null;
-
-// Function to handle icon click event
-function handleIconClick(icon) {
-  // Toggle selection state of the icon
-  if (icon.classList.contains('selected')) {
-    icon.classList.remove('selected');
-    selectedIcon = null;
-  } else {
-    // Remove selection from the previously selected icon
-    if (selectedIcon !== null) {
-      selectedIcon.classList.remove('selected');
-    }
-    // Select the clicked icon
-    icon.classList.add('selected');
-    selectedIcon = icon;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const startButton = document.getElementById('startButton');
-  const startMenu = document.getElementById('startMenu');
-
-  // Function to toggle start menu visibility and start button selection
-  function toggleStartMenu() {
-    const isOpen = startMenu.style.display === 'flex';
-    startMenu.style.display = isOpen ? 'none' : 'flex';
-    startButton.classList.toggle('selected', !isOpen);
   }
 
-  // Event listener to toggle start menu when clicking on the start button
-  startButton.addEventListener('click', function (event) {
-    toggleStartMenu();
-    event.stopPropagation(); // Prevent the click event from propagating to the document
-  });
+  function ensureTaskbarArea() {
+    const taskbar = document.querySelector('.taskbar');
+    if (!taskbar) return null;
 
-  // Event listener to hide start menu when clicking outside of it
-  document.addEventListener('click', function (event) {
-    if (!startButton.contains(event.target) && !startMenu.contains(event.target)) {
-      startMenu.style.display = 'none';
-      startButton.classList.remove('selected'); // Remove the selected class when menu is closed
+    let apps = taskbar.querySelector('.taskbar-apps');
+    if (!apps) {
+      apps = document.createElement('div');
+      apps.className = 'taskbar-apps';
+      apps.setAttribute('aria-label', 'Open applications');
+      const tray = taskbar.querySelector('.taskbar-notification-area');
+      taskbar.insertBefore(apps, tray || null);
     }
-  });
-  // Function to open a window or URL associated with the icon
-  function openWindow(icon) {
-    // Get the URL or window ID associated with the icon
-    const url = icon.getAttribute('data-url');
-    const windowId = icon.getAttribute('data-window-id');
+    return apps;
+  }
+
+  function ensureTaskbarButton(win) {
+    const state = ensureState(win);
+    if (state.taskbarButton?.isConnected) return state.taskbarButton;
+
+    const apps = ensureTaskbarArea();
+    if (!apps) return null;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'taskbar-app';
+    button.dataset.windowId = win.id;
+    button.title = getWindowTitle(win);
+
+    const icon = document.createElement('img');
+    icon.src = getWindowIcon(win.id);
+    icon.alt = '';
+
+    const label = document.createElement('span');
+    label.textContent = getWindowTitle(win);
+
+    button.append(icon, label);
+    button.addEventListener('click', () => {
+      const current = ensureState(win);
+
+      if (current.minimized) {
+        restoreWindow(win.id);
+      } else if (activeWindowId === win.id) {
+        minimizeWindow(win.id);
+      } else {
+        focusWindow(win.id);
+      }
+    });
+
+    apps.appendChild(button);
+    state.taskbarButton = button;
+    syncTaskbarState(win.id);
+    return button;
+  }
+
+  function syncTaskbarState(id) {
+    const state = states.get(id);
+    const button = state?.taskbarButton;
+    if (!button) return;
+
+    button.classList.toggle('is-active', activeWindowId === id && !state.minimized);
+    button.classList.toggle('is-minimized', state.minimized);
+  }
+
+  function syncAllTaskbarStates() {
+    states.forEach((_, id) => syncTaskbarState(id));
+  }
+
+  function positionWindow(win) {
+    if (isMobile() || win.dataset.positioned === 'true') return;
+
+    const rect = win.getBoundingClientRect();
+    const taskbarHeight = getTaskbarHeight();
+    const availableHeight = window.innerHeight - taskbarHeight;
+
+    const openCount = Array.from(states.values()).filter(state => state.open).length;
+    const offset = ((openCount - 1) % 6) * 24;
+
+    const left = clamp(
+      Math.round((window.innerWidth - rect.width) / 2 + offset),
+      TASKBAR_GAP,
+      window.innerWidth - rect.width - TASKBAR_GAP
+    );
+
+    const top = clamp(
+      Math.round((availableHeight - rect.height) / 2 + offset),
+      TASKBAR_GAP,
+      availableHeight - rect.height - TASKBAR_GAP
+    );
+
+    win.style.left = `${left}px`;
+    win.style.top = `${top}px`;
+    win.dataset.positioned = 'true';
+  }
+
+  function focusWindow(id) {
+    const win = document.getElementById(id);
+    const state = win ? ensureState(win) : null;
+    if (!win || !state?.open || state.minimized) return;
+
+    activeWindowId = id;
+    zIndex += 1;
+
+    getWindowElements().forEach(other => other.classList.toggle('is-active', other.id === id));
+    win.style.zIndex = String(zIndex);
+    win.style.display = 'block';
+
+    if (isMobile()) {
+      syncMobileVisibility();
+    }
+
+    syncAllTaskbarStates();
+  }
+
+  function findNextWindow(excludeId) {
+    return Array.from(states.entries())
+      .filter(([id, state]) => id !== excludeId && state.open && !state.minimized)
+      .map(([id]) => document.getElementById(id))
+      .filter(Boolean)
+      .sort((a, b) => Number(b.style.zIndex || 0) - Number(a.style.zIndex || 0))[0] || null;
+  }
+
+  function openWindowById(id) {
+    const win = document.getElementById(id);
+    if (!win) return;
+
+    const state = ensureState(win);
+    state.open = true;
+    state.minimized = false;
+
+    win.style.display = 'block';
+    win.classList.add('desktop-window');
+    ensureTaskbarButton(win);
+
+    requestAnimationFrame(() => {
+      positionWindow(win);
+      focusWindow(id);
+    });
+  }
+
+  function closeWindow(id) {
+    const win = document.getElementById(id);
+    const state = states.get(id);
+    if (!win || !state) return;
+
+    state.open = false;
+    state.minimized = false;
+    state.maximized = false;
+
+    win.style.display = 'none';
+    win.classList.remove('is-active', 'is-maximized');
+
+    state.taskbarButton?.remove();
+    state.taskbarButton = null;
+
+    if (activeWindowId === id) {
+      activeWindowId = null;
+      const next = findNextWindow(id);
+      if (next) focusWindow(next.id);
+    }
+
+    syncAllTaskbarStates();
+  }
+
+  function minimizeWindow(id) {
+    const win = document.getElementById(id);
+    const state = states.get(id);
+    if (!win || !state?.open) return;
+
+    state.minimized = true;
+    win.style.display = 'none';
+    win.classList.remove('is-active');
+
+    if (activeWindowId === id) {
+      activeWindowId = null;
+      const next = findNextWindow(id);
+      if (next && !isMobile()) focusWindow(next.id);
+    }
+
+    syncAllTaskbarStates();
+  }
+
+  function restoreWindow(id) {
+    const win = document.getElementById(id);
+    const state = states.get(id);
+    if (!win || !state?.open) return;
+
+    state.minimized = false;
+    win.style.display = 'block';
+    focusWindow(id);
+  }
+
+  function toggleMaximize(id) {
+    if (isMobile()) return;
+
+    const win = document.getElementById(id);
+    const state = states.get(id);
+    if (!win || !state?.open) return;
+
+    state.maximized = !state.maximized;
+    win.classList.toggle('is-maximized', state.maximized);
+    focusWindow(id);
+  }
+
+  function syncMobileVisibility() {
+    if (!isMobile()) return;
+
+    states.forEach((state, id) => {
+      const win = document.getElementById(id);
+      if (!win) return;
+      const visible = state.open && !state.minimized && id === activeWindowId;
+      win.style.display = visible ? 'block' : 'none';
+    });
+  }
+
+  function clampWindow(win) {
+    if (isMobile() || win.classList.contains('is-maximized') || win.style.display === 'none') return;
+
+    const rect = win.getBoundingClientRect();
+    const taskbarHeight = getTaskbarHeight();
+    const maxLeft = window.innerWidth - Math.min(rect.width, window.innerWidth) - TASKBAR_GAP;
+    const maxTop = window.innerHeight - taskbarHeight - Math.min(rect.height, window.innerHeight - taskbarHeight) - TASKBAR_GAP;
+
+    win.style.left = `${clamp(rect.left, TASKBAR_GAP, maxLeft)}px`;
+    win.style.top = `${clamp(rect.top, TASKBAR_GAP, maxTop)}px`;
+  }
+
+  function clampAllWindows() {
+    getWindowElements().forEach(clampWindow);
+  }
+
+  function setupDrag(win) {
+    const handle = win.querySelector('.title-bar');
+    if (!handle) return;
+
+    let dragging = false;
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let startLeft = 0;
+    let startTop = 0;
+
+    handle.addEventListener('pointerdown', event => {
+      if (event.target.closest('.title-bar-controls')) return;
+      if (isMobile() || win.classList.contains('is-maximized')) return;
+
+      focusWindow(win.id);
+      dragging = true;
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startY = event.clientY;
+
+      const rect = win.getBoundingClientRect();
+      startLeft = rect.left;
+      startTop = rect.top;
+
+      handle.setPointerCapture?.(pointerId);
+      event.preventDefault();
+    });
+
+    handle.addEventListener('pointermove', event => {
+      if (!dragging || event.pointerId !== pointerId) return;
+
+      const taskbarHeight = getTaskbarHeight();
+      const rect = win.getBoundingClientRect();
+      const nextLeft = startLeft + (event.clientX - startX);
+      const nextTop = startTop + (event.clientY - startY);
+
+      win.style.left = `${clamp(nextLeft, 0, window.innerWidth - rect.width)}px`;
+      win.style.top = `${clamp(nextTop, 0, window.innerHeight - taskbarHeight - 32)}px`;
+    });
+
+    function endDrag(event) {
+      if (!dragging || event.pointerId !== pointerId) return;
+      dragging = false;
+      handle.releasePointerCapture?.(pointerId);
+      pointerId = null;
+      clampWindow(win);
+    }
+
+    handle.addEventListener('pointerup', endDrag);
+    handle.addEventListener('pointercancel', endDrag);
+  }
+
+  function setupWindow(win) {
+    if (!win.id) return;
+
+    win.classList.add('desktop-window');
+    ensureState(win);
+
+    const controls = win.querySelector('.title-bar-controls');
+    if (controls) {
+      const closeButton = controls.querySelector('.close-btn');
+
+      if (!controls.querySelector('.minimize-btn')) {
+        const minimize = document.createElement('button');
+        minimize.type = 'button';
+        minimize.className = 'minimize-btn';
+        minimize.setAttribute('aria-label', 'Minimize');
+        minimize.title = 'Minimize';
+        minimize.textContent = '_';
+        controls.insertBefore(minimize, controls.firstChild);
+        minimize.addEventListener('click', () => minimizeWindow(win.id));
+      }
+
+      if (!controls.querySelector('.maximize-btn')) {
+        const maximize = document.createElement('button');
+        maximize.type = 'button';
+        maximize.className = 'maximize-btn';
+        maximize.setAttribute('aria-label', 'Maximize');
+        maximize.title = 'Maximize';
+        maximize.textContent = '□';
+        controls.insertBefore(maximize, closeButton || null);
+        maximize.addEventListener('click', () => toggleMaximize(win.id));
+      }
+
+      closeButton?.addEventListener('click', () => closeWindow(win.id));
+    }
+
+    win.addEventListener('pointerdown', () => {
+      const state = states.get(win.id);
+      if (state?.open && !state.minimized) focusWindow(win.id);
+    });
+
+    setupDrag(win);
+  }
+
+  function openTarget(element) {
+    const url = element.dataset.url;
+    const windowId = element.dataset.windowId;
 
     if (url) {
-      // If a URL is provided, open it in a new tab
-      window.open(url, '_blank');
-    } else if (windowId) {
-      // Otherwise, if a window ID is provided, show the corresponding draggable window
-      const draggableWindow = document.getElementById(windowId);
-      if (draggableWindow) {
-        draggableWindow.style.display = 'block';
-      }
+      window.open(url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    if (windowId) {
+      openWindowById(windowId);
     }
   }
-  // Add event listeners to all icons for double-click
-  const icons = document.querySelectorAll('.icon');
-  icons.forEach(icon => {
-    icon.addEventListener('click', () => {
-      handleIconClick(icon);
+
+  function setupDesktopIcons() {
+    let selectedIcon = null;
+
+    document.querySelectorAll('.desktop > .icon').forEach(icon => {
+      icon.tabIndex = 0;
+
+      icon.addEventListener('click', () => {
+        if (selectedIcon && selectedIcon !== icon) selectedIcon.classList.remove('selected');
+        selectedIcon = icon;
+        icon.classList.add('selected');
+
+        if (isMobile() || window.matchMedia('(pointer: coarse)').matches) {
+          openTarget(icon);
+        }
+      });
+
+      icon.addEventListener('dblclick', () => openTarget(icon));
+
+      icon.addEventListener('keydown', event => {
+        if (event.key === 'Enter') openTarget(icon);
+      });
     });
 
-    icon.addEventListener('dblclick', () => {
-      if (icon.id === "OldPortfolio") {
-        window.open("indexold.html", '_blank');
-      } else {
-        openWindow(icon);
+    document.querySelector('.desktop')?.addEventListener('pointerdown', event => {
+      if (!event.target.closest('.icon')) {
+        selectedIcon?.classList.remove('selected');
+        selectedIcon = null;
       }
     });
-  });
+  }
 
-  // Add event listeners to start menu items
-  const startMenuItems = startMenu.querySelectorAll('li');
-  startMenuItems.forEach(function (item) {
-    item.addEventListener('click', function () {
-      // Perform action when a start menu item is clicked
-      console.log('Clicked on:', item.textContent);
-      openWindow(this);
+  function setupStartMenu() {
+    const startButton = document.getElementById('startButton');
+    const startMenu = document.getElementById('startMenu');
+    if (!startButton || !startMenu) return;
+
+    function setOpen(open) {
+      startMenu.style.display = open ? 'flex' : 'none';
+      startButton.classList.toggle('selected', open);
+      startButton.setAttribute('aria-expanded', String(open));
+    }
+
+    startButton.setAttribute('aria-expanded', 'false');
+    startButton.addEventListener('click', event => {
+      event.stopPropagation();
+      setOpen(startMenu.style.display !== 'flex');
     });
+
+    startMenu.querySelectorAll('li').forEach(item => {
+      item.tabIndex = 0;
+      item.addEventListener('click', () => {
+        openTarget(item);
+        setOpen(false);
+      });
+      item.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          openTarget(item);
+          setOpen(false);
+        }
+      });
+    });
+
+    document.addEventListener('pointerdown', event => {
+      if (!startMenu.contains(event.target) && !startButton.contains(event.target)) {
+        setOpen(false);
+      }
+    });
+  }
+
+  function setupClock() {
+    const clock = document.getElementById('clock');
+    const calendar = document.getElementById('calendar');
+
+    function update() {
+      const now = new Date();
+      if (clock) {
+        clock.textContent = now.toLocaleTimeString([], {
+          hour: 'numeric',
+          minute: '2-digit'
+        });
+      }
+      if (calendar) {
+        calendar.textContent = now.toLocaleDateString([], {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+    }
+
+    update();
+    window.setInterval(update, 30000);
+  }
+
+  function setupMute() {
+    const ambient = document.getElementById('ambientSound');
+    const button = document.getElementById('muteButton');
+    const icon = document.getElementById('muteIcon');
+    if (!ambient || !button || !icon) return;
+
+    const mutedIcon = 'Images/Retro/loudspeaker_muted-1.png';
+    const soundIcon = 'Images/Retro/loudspeaker_rays-1.png';
+
+    function sync() {
+      icon.src = ambient.muted ? mutedIcon : soundIcon;
+      button.title = ambient.muted ? 'Unmute ambient sound' : 'Mute ambient sound';
+    }
+
+    button.addEventListener('click', () => {
+      ambient.muted = !ambient.muted;
+      sync();
+    });
+
+    sync();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    getWindowElements().forEach(setupWindow);
+    ensureTaskbarArea();
+    setupDesktopIcons();
+    setupStartMenu();
+    setupClock();
+    setupMute();
+    setViewportMode();
+
+    window.addEventListener('resize', setViewportMode);
+
+    window.NostalgiaDesktop = {
+      openWindowById,
+      closeWindow,
+      minimizeWindow,
+      restoreWindow,
+      focusWindow
+    };
   });
-});
-
-
+})();
