@@ -8,107 +8,107 @@
 
 /* Default OS theme */
 .theme-default {
-    --taskbar-bg: #ffb3e6;
-    --window-bg: #ffffff;
-    --title-bar-bg: #ffb3e6;
+    --taskbar-bg: #c978ad;
+    --window-bg: #efe4eb;
+    --title-bar-bg: #d783b8;
     --body-bg: url('../Images/MandelaImages/Moon\ Flower.jpg');
-    --panel-bg: #f3f3f3;
-    --start-menu-bg: #f3f3f3;
-    --start-menu-header-bg: #ffb3e6;
-    --start-menu-header-color: black;
-    --start-button-bg: #ffb3e6;
-    --start-button-selected-bg: #e5e5e5;
-    --start-button-color: black;
+    --panel-bg: #d8c7d2;
+    --start-menu-bg: #ead7e3;
+    --start-menu-header-bg: #8e4f79;
+    --start-menu-header-color: #fff6fb;
+    --start-button-bg: #c978ad;
+    --start-button-selected-bg: #a85f90;
+    --start-button-color: #171217;
 }
 
-/* Martini Picnic theme */
+/* Bliss */
 .theme-martini {
-    --taskbar-bg: #66ff66;
-    --window-bg: #99ff99;
-    --title-bar-bg: #66ff66;
+    --taskbar-bg: #78a98a;
+    --window-bg: #e6efe8;
+    --title-bar-bg: #8ab99a;
     --body-bg: url('../Images/MandelaImages/Bliss.jpg');
-    --panel-bg: #d9ffcc;
-    --start-menu-bg: #d9ffcc;
-    --start-menu-header-bg: #66ff66;
-    --start-menu-header-color: white;
-    --start-button-bg: #66ff66;
-    --start-button-selected-bg: #4caf50;
-    --start-button-color: white;
+    --panel-bg: #c9d9cc;
+    --start-menu-bg: #e2ece4;
+    --start-menu-header-bg: #456c52;
+    --start-menu-header-color: #f6fff8;
+    --start-button-bg: #78a98a;
+    --start-button-selected-bg: #5d8d6d;
+    --start-button-color: #111711;
 }
 
-/* Palermo Weekends theme */
+/* Bliss Retro */
 .theme-palermo {
-    --taskbar-bg: #00cccc;
-    --window-bg: #66ffff;
-    --title-bar-bg: #00cccc;
+    --taskbar-bg: #5b8f9e;
+    --window-bg: #dcebed;
+    --title-bar-bg: #6b9eab;
     --body-bg: url('../Images/Retro/Bliss.jpg');
-    --panel-bg: #ccffff;
-    --start-menu-bg: #ccffff;
-    --start-menu-header-bg: #00cccc;
-    --start-menu-header-color: white;
-    --start-button-bg: #00cccc;
-    --start-button-selected-bg: #009688;
-    --start-button-color: white;
+    --panel-bg: #bfd3d7;
+    --start-menu-bg: #d7e6e8;
+    --start-menu-header-bg: #345c68;
+    --start-menu-header-color: #f4fcff;
+    --start-button-bg: #5b8f9e;
+    --start-button-selected-bg: #467482;
+    --start-button-color: #101516;
 }
 
-/* Poolside FM (RIP) theme */
+/* Radiance */
 .theme-poolside {
-    --taskbar-bg: #ff99cc;
-    --window-bg: #ffccff;
-    --title-bar-bg: #ff99cc;
+    --taskbar-bg: #b66e94;
+    --window-bg: #f0dfe8;
+    --title-bar-bg: #c77fa3;
     --body-bg: url('../Images/MandelaImages/Radiance.jpg');
-    --panel-bg: #ffd9e6;
-    --start-menu-bg: #ffd9e6;
-    --start-menu-header-bg: #ff99cc;
-    --start-menu-header-color: white;
-    --start-button-bg: #ff99cc;
-    --start-button-selected-bg: #e57373;
-    --start-button-color: white;
+    --panel-bg: #dac3cf;
+    --start-menu-bg: #ead8e2;
+    --start-menu-header-bg: #7a4360;
+    --start-menu-header-color: #fff7fb;
+    --start-button-bg: #b66e94;
+    --start-button-selected-bg: #945574;
+    --start-button-color: #171116;
 }
 
-/* Poolsuite OS (Default) theme */
+/* Crescent */
 .theme-poolsuite {
-    --taskbar-bg: #ffffcc;
-    --window-bg: #ffffe6;
-    --title-bar-bg: #ffffcc;
+    --taskbar-bg: #aaa06a;
+    --window-bg: #f0eddc;
+    --title-bar-bg: #b9ad76;
     --body-bg: url('../Images/Retro/Crescent.jpg');
-    --panel-bg: #fffff2;
-    --start-menu-bg: #fffff2;
-    --start-menu-header-bg: #ffffcc;
-    --start-menu-header-color: black;
-    --start-button-bg: #ffffcc;
-    --start-button-selected-bg: #ffe082;
-    --start-button-color: black;
+    --panel-bg: #d8d2b7;
+    --start-menu-bg: #ebe7d3;
+    --start-menu-header-bg: #716a3e;
+    --start-menu-header-color: #fffdf1;
+    --start-button-bg: #aaa06a;
+    --start-button-selected-bg: #8e8453;
+    --start-button-color: #17160f;
 }
 
-/* Pacific Breeze theme */
+/* Follow */
 .theme-pacific {
-    --taskbar-bg: #99ccff;
-    --window-bg: #cceeff;
-    --title-bar-bg: #99ccff;
+    --taskbar-bg: #748eaf;
+    --window-bg: #e0e6ef;
+    --title-bar-bg: #849dbb;
     --body-bg: url('../Images/MandelaImages/Follow.jpg');
-    --panel-bg: #d9ecff;
-    --start-menu-bg: #d9ecff;
-    --start-menu-header-bg: #99ccff;
-    --start-menu-header-color: black;
-    --start-button-bg: #99ccff;
-    --start-button-selected-bg: #64b5f6;
-    --start-button-color: black;
+    --panel-bg: #c5cedb;
+    --start-menu-bg: #dae1eb;
+    --start-menu-header-bg: #465a76;
+    --start-menu-header-color: #f7faff;
+    --start-button-bg: #748eaf;
+    --start-button-selected-bg: #5d7697;
+    --start-button-color: #11151b;
 }
 
-/* Lost in Tripoli theme */
+/* Tulips */
 .theme-tripoli {
-    --taskbar-bg: #ffcc99;
-    --window-bg: #ffebcc;
-    --title-bar-bg: #ffcc99;
+    --taskbar-bg: #b47e63;
+    --window-bg: #efe4de;
+    --title-bar-bg: #c08d73;
     --body-bg: url('../Images/MandelaImages/Tulips.jpg');
-    --panel-bg: #ffe6cc;
-    --start-menu-bg: #ffe6cc;
-    --start-menu-header-bg: #ffcc99;
-    --start-menu-header-color: black;
-    --start-button-bg: #ffcc99;
-    --start-button-selected-bg: #ffb74d;
-    --start-button-color: black;
+    --panel-bg: #d9c7be;
+    --start-menu-bg: #eadbd3;
+    --start-menu-header-bg: #79503d;
+    --start-menu-header-color: #fff8f4;
+    --start-button-bg: #b47e63;
+    --start-button-selected-bg: #95654e;
+    --start-button-color: #18120f;
 }
 
 /* Body Styles */
