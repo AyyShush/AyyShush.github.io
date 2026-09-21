@@ -134,8 +134,14 @@
         </div>
 
         <div class="taskbar-notification-area">
-            <div class="mute-button" id="muteButton">
-                <img src="Images/Retro/loudspeaker_muted-1.png" alt="Mute" id="muteIcon" />
+            <div class="volume-control">
+                <div class="mute-button" id="muteButton" tabindex="0" role="button" aria-label="Toggle sound">
+                    <img src="Images/Retro/loudspeaker_muted-1.png" alt="" id="muteIcon" />
+                </div>
+                <div class="volume-popup" aria-label="Volume control">
+                    <span>Volume</span>
+                    <input id="volumeSlider" type="range" min="0" max="100" value="45" aria-label="Volume">
+                </div>
             </div>
 
             <div class="clock-calendar-container">
