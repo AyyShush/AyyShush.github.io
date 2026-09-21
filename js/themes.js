@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     const contextMenu = document.getElementById('context-menu');
     const themesWindow = document.getElementById('themesWindow');
+    const preview = themesWindow?.querySelector('.monitor-image');
 
     const themes = {
-        theme1: 'theme-martini',
-        theme2: 'theme-palermo',
-        theme3: 'theme-poolside',
-        theme4: 'theme-poolsuite',
-        theme5: 'theme-pacific',
-        theme6: 'theme-tripoli',
-        theme7: 'theme-default'
+        theme1: { className: 'theme-martini', image: 'Images/MandelaImages/Bliss.jpg' },
+        theme2: { className: 'theme-palermo', image: 'Images/Retro/Bliss.jpg' },
+        theme3: { className: 'theme-poolside', image: 'Images/MandelaImages/Radiance.jpg' },
+        theme4: { className: 'theme-poolsuite', image: 'Images/Retro/Crescent.jpg' },
+        theme5: { className: 'theme-pacific', image: 'Images/MandelaImages/Follow.jpg' },
+        theme6: { className: 'theme-tripoli', image: 'Images/MandelaImages/Tulips.jpg' },
+        theme7: { className: 'theme-default', image: 'Images/MandelaImages/Moon Flower.jpg' }
     };
 
     let selectedTheme = 'theme7';
@@ -22,19 +23,31 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add(themeClass);
     }
 
+    function updatePreview(themeKey) {
+        const theme = themes[themeKey] || themes.theme7;
+        if (preview) {
+            preview.style.backgroundImage = `url("${encodeURI(theme.image)}")`;
+        }
+
+        document.querySelectorAll('.theme-option').forEach(item => {
+            const selected = item.getAttribute('data-theme') === themeKey;
+            item.style.fontWeight = selected ? 'bold' : 'normal';
+            item.setAttribute('aria-selected', String(selected));
+        });
+    }
+
     function openThemesWindow() {
         if (window.NostalgiaDesktop?.openWindowById) {
             window.NostalgiaDesktop.openWindowById('themesWindow');
         } else if (themesWindow) {
             themesWindow.style.display = 'block';
         }
+        updatePreview(selectedTheme);
     }
 
     document.addEventListener('contextmenu', function (event) {
         const desktop = event.target.closest('.desktop');
-        if (!desktop || event.target.closest('.desktop-window')) {
-            return;
-        }
+        if (!desktop || event.target.closest('.desktop-window')) return;
 
         event.preventDefault();
         if (!contextMenu) return;
@@ -70,27 +83,28 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Formatting C:\\ drive... Just kidding!');
     });
 
-    const savedTheme = localStorage.getItem('nostalgia-theme');
-    if (savedTheme && Object.values(themes).includes(savedTheme)) {
-        applyThemeClass(savedTheme);
-        const selectedEntry = Object.entries(themes).find(([, value]) => value === savedTheme);
-        if (selectedEntry) selectedTheme = selectedEntry[0];
+    const savedThemeClass = localStorage.getItem('nostalgia-theme');
+    if (savedThemeClass) {
+        const savedEntry = Object.entries(themes).find(([, value]) => value.className === savedThemeClass);
+        if (savedEntry) {
+            selectedTheme = savedEntry[0];
+            applyThemeClass(savedEntry[1].className);
+        }
     }
 
     document.querySelectorAll('.theme-option').forEach(option => {
+        option.setAttribute('role', 'option');
         option.addEventListener('click', function () {
-            document.querySelectorAll('.theme-option').forEach(item => {
-                item.style.fontWeight = 'normal';
-            });
-
             selectedTheme = this.getAttribute('data-theme') || 'theme7';
-            this.style.fontWeight = 'bold';
+            updatePreview(selectedTheme);
         });
     });
 
     document.getElementById('applyTheme')?.addEventListener('click', function () {
-        const themeClass = themes[selectedTheme] || themes.theme7;
-        applyThemeClass(themeClass);
-        localStorage.setItem('nostalgia-theme', themeClass);
+        const theme = themes[selectedTheme] || themes.theme7;
+        applyThemeClass(theme.className);
+        localStorage.setItem('nostalgia-theme', theme.className);
     });
+
+    updatePreview(selectedTheme);
 });
