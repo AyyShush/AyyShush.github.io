@@ -498,20 +498,64 @@
     const ambient = document.getElementById('ambientSound');
     const button = document.getElementById('muteButton');
     const icon = document.getElementById('muteIcon');
+    const slider = document.getElementById('volumeSlider');
+    const control = button?.closest('.volume-control');
     if (!ambient || !button || !icon) return;
 
     const mutedIcon = 'Images/Retro/loudspeaker_muted-1.png';
     const soundIcon = 'Images/Retro/loudspeaker_rays-1.png';
+    const savedVolume = Number(localStorage.getItem('nostalgia-volume'));
 
-    function sync() {
-      icon.src = ambient.muted ? mutedIcon : soundIcon;
-      button.title = ambient.muted ? 'Unmute ambient sound' : 'Mute ambient sound';
+    if (Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1) {
+      ambient.volume = savedVolume;
+    } else {
+      ambient.volume = 0.45;
     }
 
-    button.addEventListener('click', () => {
+    if (slider) slider.value = String(Math.round(ambient.volume * 100));
+
+    function sync() {
+      const muted = ambient.muted || ambient.volume === 0;
+      icon.src = muted ? mutedIcon : soundIcon;
+      button.title = muted ? 'Unmute ambient sound' : 'Mute ambient sound';
+      button.setAttribute('aria-pressed', String(muted));
+    }
+
+    button.addEventListener('click', event => {
+      event.stopPropagation();
       ambient.muted = !ambient.muted;
+      if (!ambient.muted && ambient.volume === 0) {
+        ambient.volume = 0.45;
+        if (slider) slider.value = '45';
+      }
       sync();
     });
+
+    button.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        button.click();
+      }
+    });
+
+    slider?.addEventListener('input', event => {
+      const value = Number(event.target.value) / 100;
+      ambient.volume = value;
+      ambient.muted = value === 0;
+      localStorage.setItem('nostalgia-volume', String(value));
+      sync();
+    });
+
+    if (control && window.matchMedia('(hover: none)').matches) {
+      button.addEventListener('contextmenu', event => {
+        event.preventDefault();
+        control.classList.toggle('is-open');
+      });
+
+      document.addEventListener('pointerdown', event => {
+        if (!control.contains(event.target)) control.classList.remove('is-open');
+      });
+    }
 
     sync();
   }
