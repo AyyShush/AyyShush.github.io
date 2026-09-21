@@ -1,35 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Show/Hide Context Menu
-    document.addEventListener('contextmenu', function (event) {
-        event.preventDefault(); // Prevent default context menu
-        const contextMenu = document.getElementById('context-menu');
-        contextMenu.style.display = 'block';
-        contextMenu.style.left = `${event.clientX}px`;
-        contextMenu.style.top = `${event.clientY}px`;
-    });
+    const contextMenu = document.getElementById('context-menu');
+    const themesWindow = document.getElementById('themesWindow');
 
-    document.addEventListener('click', function () {
-        const contextMenu = document.getElementById('context-menu');
-        if (contextMenu.style.display === 'block') {
-            contextMenu.style.display = 'none';
-        }
-    });
-
-    // Handle Context Menu Options
-    document.getElementById('about').addEventListener('click', function () {
-        alert('This is a retro-themed portfolio website.');
-    });
-
-    document.getElementById('themes').addEventListener('click', function () {
-        const themesWindow = document.getElementById('themesWindow');
-        themesWindow.style.display = 'block';
-    });
-
-    document.getElementById('format').addEventListener('click', function () {
-        alert('Formatting C:\\ drive... Just kidding!');
-    });
-
-    // Apply Theme Functionality
     const themes = {
         theme1: 'theme-martini',
         theme2: 'theme-palermo',
@@ -37,22 +9,88 @@ document.addEventListener('DOMContentLoaded', function () {
         theme4: 'theme-poolsuite',
         theme5: 'theme-pacific',
         theme6: 'theme-tripoli',
-        theme7: 'theme-default' // OS default theme
+        theme7: 'theme-default'
     };
 
     let selectedTheme = 'theme7';
 
+    function applyThemeClass(themeClass) {
+        Array.from(document.body.classList)
+            .filter(className => className.startsWith('theme-'))
+            .forEach(className => document.body.classList.remove(className));
+
+        document.body.classList.add(themeClass);
+    }
+
+    function openThemesWindow() {
+        if (window.NostalgiaDesktop?.openWindowById) {
+            window.NostalgiaDesktop.openWindowById('themesWindow');
+        } else if (themesWindow) {
+            themesWindow.style.display = 'block';
+        }
+    }
+
+    document.addEventListener('contextmenu', function (event) {
+        const desktop = event.target.closest('.desktop');
+        if (!desktop || event.target.closest('.desktop-window')) {
+            return;
+        }
+
+        event.preventDefault();
+        if (!contextMenu) return;
+
+        contextMenu.style.display = 'block';
+        contextMenu.style.left = '0px';
+        contextMenu.style.top = '0px';
+
+        const rect = contextMenu.getBoundingClientRect();
+        const left = Math.min(event.clientX, window.innerWidth - rect.width - 4);
+        const top = Math.min(event.clientY, window.innerHeight - rect.height - 44);
+
+        contextMenu.style.left = Math.max(4, left) + 'px';
+        contextMenu.style.top = Math.max(4, top) + 'px';
+    });
+
+    document.addEventListener('pointerdown', function (event) {
+        if (contextMenu && !contextMenu.contains(event.target)) {
+            contextMenu.style.display = 'none';
+        }
+    });
+
+    document.getElementById('about')?.addEventListener('click', function () {
+        alert('Nostalgia OS, a retro desktop portfolio by AyyShush.');
+    });
+
+    document.getElementById('themes')?.addEventListener('click', function () {
+        openThemesWindow();
+        if (contextMenu) contextMenu.style.display = 'none';
+    });
+
+    document.getElementById('format')?.addEventListener('click', function () {
+        alert('Formatting C:\\ drive... Just kidding!');
+    });
+
+    const savedTheme = localStorage.getItem('nostalgia-theme');
+    if (savedTheme && Object.values(themes).includes(savedTheme)) {
+        applyThemeClass(savedTheme);
+        const selectedEntry = Object.entries(themes).find(([, value]) => value === savedTheme);
+        if (selectedEntry) selectedTheme = selectedEntry[0];
+    }
+
     document.querySelectorAll('.theme-option').forEach(option => {
         option.addEventListener('click', function () {
-            document.querySelectorAll('.theme-option').forEach(option => {
-                option.style.fontWeight = 'normal';
+            document.querySelectorAll('.theme-option').forEach(item => {
+                item.style.fontWeight = 'normal';
             });
-            selectedTheme = this.getAttribute('data-theme');
+
+            selectedTheme = this.getAttribute('data-theme') || 'theme7';
             this.style.fontWeight = 'bold';
         });
     });
 
-    document.getElementById('applyTheme').addEventListener('click', function () {
-        document.body.className = themes[selectedTheme];
+    document.getElementById('applyTheme')?.addEventListener('click', function () {
+        const themeClass = themes[selectedTheme] || themes.theme7;
+        applyThemeClass(themeClass);
+        localStorage.setItem('nostalgia-theme', themeClass);
     });
 });
