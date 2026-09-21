@@ -14,6 +14,38 @@ const keySounds = [
 ];
 
 let skip = false;
+let finished = false;
+
+function safePlay(audio) {
+    if (!audio) return Promise.resolve();
+    const result = audio.play();
+    return result && typeof result.catch === 'function' ? result.catch(() => {}) : Promise.resolve();
+}
+
+function finishBoot(playStartup = true) {
+    if (finished) return;
+    finished = true;
+    skip = true;
+
+    const loader = document.getElementById('loaderScreen');
+    const startup = document.getElementById('startupsound');
+    const ambient = document.getElementById('ambientSound');
+
+    if (loader) loader.style.display = 'none';
+
+    if (!playStartup) {
+        safePlay(ambient);
+        return;
+    }
+
+    safePlay(startup).then(() => {
+        if (!startup || startup.paused) {
+            safePlay(ambient);
+        }
+    });
+
+    startup?.addEventListener('ended', () => safePlay(ambient), { once: true });
+}
 
 function getRandomKeySound() {
     return keySounds[Math.floor(Math.random() * keySounds.length)];
@@ -21,13 +53,7 @@ function getRandomKeySound() {
 
 function animateTyping(index) {
     if (index >= commands.length || skip) {
-        var startup = document.getElementById('startupsound');
-        startup.play();
-        startup.addEventListener('ended', function () {
-            document.getElementById('ambientSound').play();
-        });
-        var loader = document.getElementById('loaderScreen');
-        loader.style.display = 'none';
+        finishBoot(true);
         return;
     }
 
@@ -35,24 +61,31 @@ function animateTyping(index) {
     let i = 0;
 
     const typeCommand = setInterval(() => {
-        if (i < command.length && !skip) {
-            typewriter.innerHTML += command[i++];
-            const keySound = new Audio(getRandomKeySound());
-            keySound.play(); // Play key sound
-        } else {
+        if (skip) {
             clearInterval(typeCommand);
-            if (!skip) {
-                typewriter.appendChild(document.createElement('br'));
-                animateProcessing(feedback, index);
-            }
+            return;
         }
-    }, 100); // Adjust typing speed (100ms delay between each character)
+
+        if (i < command.length) {
+            if (typewriter) typewriter.textContent += command[i++];
+            const keySound = new Audio(getRandomKeySound());
+            keySound.volume = 0.35;
+            safePlay(keySound);
+            return;
+        }
+
+        clearInterval(typeCommand);
+        typewriter?.appendChild(document.createElement('br'));
+        animateProcessing(feedback, index);
+    }, 85);
 }
 
 function animateProcessing(feedback, index) {
+    if (!typewriter || skip) return;
+
     const processingSpan = document.createElement('span');
     processingSpan.classList.add('processing');
-    processingSpan.textContent += "[PROCESSING]";
+    processingSpan.textContent = '[PROCESSING]';
     typewriter.appendChild(processingSpan);
 
     const dotsElement = document.createElement('span');
@@ -63,40 +96,45 @@ function animateProcessing(feedback, index) {
     const dotsInterval = setInterval(() => {
         if (skip) {
             clearInterval(dotsInterval);
-        } else {
-            dotIndex++;
-            if (dotIndex > 3) {
-                clearInterval(dotsInterval);
-                setTimeout(() => {
-                    if (!skip) {
-                        typewriter.innerHTML += '<br>' + feedback + '<br>'; // Add feedback
-                        setTimeout(() => {
-                            typewriter.innerHTML += '<br>'; // Add a line break after feedback
-                            animateTyping(index + 1); // Move to the next command
-                        }, Math.random() * (1000 - 500) + 500); // Random delay between 1s and 3s after feedback
-                    }
-                }, 500); // Wait for dots animation to complete before adding feedback
-            } else {
-                dotsElement.textContent += '.';
-            }
+            return;
         }
-    }, 500); // Interval between adding dots
+
+        dotIndex += 1;
+        dotsElement.textContent = '.'.repeat(dotIndex);
+
+        if (dotIndex >= 3) {
+            clearInterval(dotsInterval);
+            setTimeout(() => {
+                if (skip || !typewriter) return;
+                typewriter.appendChild(document.createElement('br'));
+                typewriter.append(document.createTextNode(feedback));
+                typewriter.appendChild(document.createElement('br'));
+                typewriter.appendChild(document.createElement('br'));
+                setTimeout(() => animateTyping(index + 1), 500 + Math.random() * 500);
+            }, 350);
+        }
+    }, 350);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.addEventListener('keydown', (event) => {
-        if (event.code === 'Space') {
-            // Hide the loader and skip to the next part
-            skip = true;
-            var loader = document.getElementById('loaderScreen');
-            loader.style.display = 'none';
+    const skipControl = document.querySelector('.loader .skip');
 
-            // Start the animation or next part of the page load
-            document.getElementById('ambientSound').play();
+    function skipBoot() {
+        finishBoot(false);
+    }
+
+    document.addEventListener('keydown', event => {
+        if (event.code === 'Space' && !finished) {
+            event.preventDefault();
+            skipBoot();
         }
     });
 
-  //  var loader = document.getElementById('loaderScreen');
-  //  loader.style.display = 'none';
+    skipControl?.addEventListener('click', skipBoot);
+    skipControl?.addEventListener('pointerup', event => {
+        event.preventDefault();
+        skipBoot();
+    });
+
     animateTyping(0);
 });
